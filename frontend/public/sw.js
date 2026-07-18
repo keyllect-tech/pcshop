@@ -34,7 +34,7 @@ self.addEventListener('fetch', (event) => {
 
   // Ignore Django admin and API requests from caching (always network)
   const url = new URL(event.request.url);
-  if (url.pathname.startsWith('/api') || url.pathname.startsWith('/admin') || url.hostname.includes('koyeb')) {
+  if (url.pathname.startsWith('/api') || url.pathname.startsWith('/admin') || url.origin !== self.location.origin) {
     return;
   }
 

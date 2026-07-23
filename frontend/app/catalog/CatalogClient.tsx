@@ -11,7 +11,7 @@ import {
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCart } from '@/hooks/useCart';
 import Link from 'next/link';
-import { getCategories, getProducts } from '@/lib/api';
+import { getCategories, getProducts, getImageUrl } from '@/lib/api';
 
 
 interface Product {
@@ -300,7 +300,7 @@ export default function CatalogPage() {
           }`}>
             {product.images?.[0] ? (
               <Image
-                src={product.images[0]}
+                src={getImageUrl(product.images[0])}
                 alt={name}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"

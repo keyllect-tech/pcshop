@@ -7,7 +7,7 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Cpu, Monitor, Headphones, Zap, Truck, Shield, Clock, ChevronRight, Star, Percent } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCart } from '@/hooks/useCart';
-import { getCategories, getProducts } from '@/lib/api';
+import { getCategories, getProducts, getImageUrl } from '@/lib/api';
 
 
 // Stats counter component
@@ -148,7 +148,7 @@ function ProductCard({ product, index }: { product: any; index: number }) {
           <div className="relative aspect-square bg-gradient-to-br from-neutral-800 to-neutral-900 overflow-hidden">
             {product.images?.[0] ? (
               <Image
-                src={product.images[0]}
+                src={getImageUrl(product.images[0])}
                 alt={name}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -232,7 +232,7 @@ function ProductCard({ product, index }: { product: any; index: number }) {
                     name_ru: product.name_ru,
                     name_uz: product.name_uz,
                     price: product.price,
-                    image: product.images?.[0] || '',
+                    image: getImageUrl(product.images?.[0] || ''),
                     slug: product.slug,
                   });
                 }}

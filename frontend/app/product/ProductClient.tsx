@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCart } from '@/hooks/useCart';
-import { getProductBySlug, getSimilarProducts, getReviews } from '@/lib/api';
+import { getProductBySlug, getSimilarProducts, getReviews, getImageUrl } from '@/lib/api';
 
 interface Product {
   id: number;
@@ -223,7 +223,7 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
             >
               {product.images?.[selectedImage] ? (
                 <Image
-                  src={product.images[selectedImage]}
+                  src={getImageUrl(product.images[selectedImage])}
                   alt={name}
                   fill
                   className="object-cover"
@@ -280,7 +280,7 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
                         : 'opacity-60 hover:opacity-100'
                     }`}
                   >
-                    <Image src={img} alt="" fill className="object-cover" />
+                    <Image src={getImageUrl(img)} alt="" fill className="object-cover" />
                   </button>
                 ))}
               </div>

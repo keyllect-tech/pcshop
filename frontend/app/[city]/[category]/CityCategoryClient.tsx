@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { Grid3X3, LayoutList, ArrowUpDown, Search, Zap } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCart } from '@/hooks/useCart';
+import { getImageUrl } from '@/lib/api';
 
 interface Product {
   id: number;
@@ -173,7 +174,7 @@ export default function CityCategoryClient({ initialProducts, categorySlug, city
                   }`}>
                     {product.images?.[0] ? (
                       <Image
-                        src={product.images[0]}
+                        src={getImageUrl(product.images[0])}
                         alt={name}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"

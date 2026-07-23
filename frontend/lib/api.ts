@@ -1,18 +1,14 @@
 let rawBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://informal-rodina-bave-hub-2e898989.koyeb.app/api';
 
-// Safety check: if NEXT_PUBLIC_API_URL contains the legacy pcshop.uz domain,
-// redirect it to the active Koyeb backend to prevent CORS/Failed to fetch errors.
-if (rawBaseUrl.includes('pcshop.uz') && !rawBaseUrl.includes('storepcshop.uz') && !rawBaseUrl.includes('koyeb.app')) {
-  console.warn("[PcShop API] Legacy API domain detected in environment variables. Overriding with active Koyeb backend.");
+// Force all API traffic to the active Koyeb backend server
+if (!rawBaseUrl || rawBaseUrl.includes('pcshop.uz') || rawBaseUrl.includes('storepcshop.uz') || !rawBaseUrl.includes('koyeb.app')) {
   rawBaseUrl = 'https://informal-rodina-bave-hub-2e898989.koyeb.app/api';
 }
 
-// Remove trailing slash if present
 if (rawBaseUrl.endsWith('/')) {
   rawBaseUrl = rawBaseUrl.slice(0, -1);
 }
 
-// Ensure it ends with /api if not present
 if (!rawBaseUrl.endsWith('/api')) {
   rawBaseUrl = `${rawBaseUrl}/api`;
 }

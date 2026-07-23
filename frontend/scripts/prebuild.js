@@ -10,7 +10,7 @@ if (!baseUrl.endsWith('/api')) {
 }
 
 // Intercept legacy domain
-if (baseUrl.includes('pcshop.uz') && !baseUrl.includes('storepcshop.uz') && !baseUrl.includes('koyeb.app')) {
+if (!baseUrl || baseUrl.includes('pcshop.uz') || baseUrl.includes('storepcshop.uz') || !baseUrl.includes('koyeb.app')) {
   baseUrl = 'https://informal-rodina-bave-hub-2e898989.koyeb.app/api';
 }
 
@@ -58,16 +58,18 @@ async function main() {
     console.log('[Prebuild] Fetching products...');
     const productsData = await fetchWithRetry(`${baseUrl}/products/`);
     
+    const BACKEND_MEDIA_ORIGIN = 'https://informal-rodina-bave-hub-2e898989.koyeb.app';
     const getImageUrl = (url) => {
       if (!url) return '';
-      if (url.startsWith('/media/')) {
-        let backendDomain = baseUrl.replace('/api', '');
-        if (!backendDomain || !backendDomain.startsWith('http')) {
-          backendDomain = 'https://informal-rodina-bave-hub-2e898989.koyeb.app';
+      if (url.startsWith('http://') || url.startsWith('https://')) {
+        if (url.includes('/media/') && (url.includes('storepcshop.uz') || url.includes('pcshop.uz'))) {
+          const mediaPath = url.substring(url.indexOf('/media/'));
+          return `${BACKEND_MEDIA_ORIGIN}${mediaPath}`;
         }
-        return `${backendDomain}${url}`;
+        return url;
       }
-      return url;
+      const cleanPath = url.startsWith('/') ? url : `/${url}`;
+      return `${BACKEND_MEDIA_ORIGIN}${cleanPath}`;
     };
 
     // Parse products using same logic as api.ts

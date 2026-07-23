@@ -147,16 +147,21 @@ async function fetchProductsInBackground() {
   }
 }
 
-const getImageUrl = (url: string) => {
+export const BACKEND_MEDIA_ORIGIN = 'https://informal-rodina-bave-hub-2e898989.koyeb.app';
+
+export const getImageUrl = (url: string): string => {
   if (!url) return '';
-  if (url.startsWith('/media/')) {
-    let backendDomain = BASE_URL.replace('/api', '');
-    if (!backendDomain || !backendDomain.startsWith('http')) {
-      backendDomain = 'https://informal-rodina-bave-hub-2e898989.koyeb.app';
+  
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    if (url.includes('/media/') && (url.includes('storepcshop.uz') || url.includes('pcshop.uz'))) {
+      const mediaPath = url.substring(url.indexOf('/media/'));
+      return `${BACKEND_MEDIA_ORIGIN}${mediaPath}`;
     }
-    return `${backendDomain}${url}`;
+    return url;
   }
-  return url;
+
+  const cleanPath = url.startsWith('/') ? url : `/${url}`;
+  return `${BACKEND_MEDIA_ORIGIN}${cleanPath}`;
 };
 
 function parseProductsData(data: any[]): Product[] {

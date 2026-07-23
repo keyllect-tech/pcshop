@@ -9,7 +9,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/catalog',
     '/about',
     '/contacts',
-    '/blog',
     '/configurator',
     '/faq',
   ].map(route => {
@@ -59,33 +58,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  const blogPostsList = [
-    'how-to-choose-gaming-pc',
-    'best-graphics-cards-2026',
-    'rtx-vs-radeon',
-    'best-amd-processors',
-    'best-intel-processors',
-    'pc-assembly-for-games',
-    'pc-for-work',
-    'gaming-monitors'
-  ];
-
-  const blogPages = blogPostsList.map(slug => {
-    const url = `${baseUrl}/blog/${slug}`;
-    return {
-      url,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-      alternates: {
-        languages: {
-          'ru-RU': `${url}?lang=ru`,
-          'uz-UZ': `${url}?lang=uz`,
-        }
-      }
-    };
-  });
-
   try {
     const products = await getProducts();
     const productPages = [];
@@ -126,9 +98,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     }
 
-    return [...staticPages, ...productPages, ...cityCategoryPages, ...blogPages];
+    return [...staticPages, ...productPages, ...cityCategoryPages];
   } catch (error) {
     console.error('Error generating dynamic sitemap:', error);
-    return [...staticPages, ...cityCategoryPages, ...blogPages];
+    return [...staticPages, ...cityCategoryPages];
   }
 }

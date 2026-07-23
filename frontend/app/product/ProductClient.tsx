@@ -11,28 +11,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCart } from '@/hooks/useCart';
-import { blogPosts } from '@/lib/blogData';
 import { getProductBySlug, getSimilarProducts, getReviews } from '@/lib/api';
-
-
-const getRelatedArticles = (productName: string, categoryId: number) => {
-  const nameLower = productName.toLowerCase();
-  
-  if (nameLower.includes('видеокарт') || nameLower.includes('rtx') || nameLower.includes('gtx') || nameLower.includes('radeon') || categoryId === 3) {
-    return blogPosts.filter(post => ['best-graphics-cards-2026', 'rtx-vs-radeon'].includes(post.slug));
-  }
-  if (nameLower.includes('процессор') || nameLower.includes('ryzen') || nameLower.includes('intel') || nameLower.includes('core') || nameLower.includes('amd') || categoryId === 2) {
-    return blogPosts.filter(post => ['best-amd-processors', 'best-intel-processors'].includes(post.slug));
-  }
-  if (nameLower.includes('монитор') || categoryId === 11) {
-    return blogPosts.filter(post => ['gaming-monitors'].includes(post.slug));
-  }
-  if (nameLower.includes('пк') || nameLower.includes('компьютер') || categoryId === 1) {
-    return blogPosts.filter(post => ['how-to-choose-gaming-pc', 'pc-assembly-for-games', 'pc-for-work'].includes(post.slug));
-  }
-  
-  return blogPosts.slice(0, 2);
-};
 
 interface Product {
   id: number;
@@ -613,43 +592,7 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
           </div>
         )}
 
-        {/* Related Blog Posts */}
-        {product && (
-          <div className="mt-16 border-t border-gray-800 pt-12">
-            <h2 className="text-2xl font-bold text-white mb-6">
-              {language === 'ru' ? 'Полезные статьи в нашем блоге' : 'Blogimizdagi foydali maqolalar'}
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {getRelatedArticles(product.name_ru || product.name_uz, product.category_id).map((post) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-                  <div className="flex gap-4 p-4 rounded-xl bg-neutral-900 border border-gray-800 hover:border-red-500/50 transition-all">
-                    <div className="relative w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-neutral-800">
-                      <Image
-                        src={post.image}
-                        alt={language === 'ru' ? post.title_ru : post.title_uz}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="flex-1 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-sm font-semibold text-white group-hover:text-red-500 transition-colors line-clamp-2">
-                          {language === 'ru' ? post.title_ru : post.title_uz}
-                        </h3>
-                        <p className="text-xs text-gray-400 mt-1 line-clamp-2">
-                          {language === 'ru' ? post.excerpt_ru : post.excerpt_uz}
-                        </p>
-                      </div>
-                      <span className="text-xs text-red-500 font-medium mt-2">
-                        {language === 'ru' ? 'Читать статью →' : 'Maqolani o\'qish →'}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+
       </div>
     </div>
   );

@@ -17,7 +17,6 @@ const footerLinks = [
   { href: '/faq', key: 'faq' },
   { href: '/about', key: 'about' },
   { href: '/contacts', key: 'contacts' },
-  { href: '/blog', key: 'blog' },
 ];
 
 const advantages = [

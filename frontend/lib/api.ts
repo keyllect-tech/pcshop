@@ -145,8 +145,11 @@ async function fetchProductsInBackground() {
 
 export const BACKEND_MEDIA_ORIGIN = 'https://relative-tyne-dus-23fc21cf.koyeb.app';
 
-export const getImageUrl = (url: string): string => {
-  if (!url) return '';
+export const getImageUrl = (url?: string | null, productId?: number): string => {
+  if (!url || url.includes('/temp_products/') || url === 'null') {
+    const fallbackIdx = productId ? (Math.abs(productId) % 40) + 1 : 1;
+    return `${BACKEND_MEDIA_ORIGIN}/media/products/product_image_${fallbackIdx}.jpg`;
+  }
   
   if (url.startsWith('http://') || url.startsWith('https://')) {
     if (url.includes('/media/') && (url.includes('storepcshop.uz') || url.includes('pcshop.uz'))) {
@@ -169,8 +172,13 @@ function parseProductsData(data: any[]): Product[] {
       });
     }
 
-    const rawImages = p.images && Array.isArray(p.images) ? p.images : (p.image ? [p.image] : []);
-    const images = rawImages.map((img: string) => getImageUrl(img));
+    let rawImages = p.images && Array.isArray(p.images) ? p.images : (p.image ? [p.image] : []);
+    rawImages = rawImages.filter((img: string) => img && !img.includes('/temp_products/') && img !== 'null');
+    if (rawImages.length === 0) {
+      const fallbackIdx = (Math.abs(p.id || 1) % 40) + 1;
+      rawImages = [`/media/products/product_image_${fallbackIdx}.jpg`];
+    }
+    const images = rawImages.map((img: string) => getImageUrl(img, p.id));
     
     const images_detail = (p.images_detail || []).map((img: any) => ({
       ...img,

@@ -1,20 +1,24 @@
 1:HL["/_next/static/css/5e6220ffc4cd5728.css","style"]
-0:["07-CjcllpraUIetZGeGec",[[["",{"children":[["city","andijan","d"],{"children":[["category","asus-tuf-gaming-1000w-gold-tuf-gaming-1000g","d"],{"children":["__PAGE__?{\"city\":\"andijan\",\"category\":\"asus-tuf-gaming-1000w-gold-tuf-gaming-1000g\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/5e6220ffc4cd5728.css","precedence":"next"}]],"$L3"]]]]
+0:["qQpOUcNgjpByrbOo5A5t_",[[["",{"children":[["city","andijan","d"],{"children":[["category","asus-tuf-gaming-1000w-gold-tuf-gaming-1000g","d"],{"children":["__PAGE__?{\"city\":\"andijan\",\"category\":\"asus-tuf-gaming-1000w-gold-tuf-gaming-1000g\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/5e6220ffc4cd5728.css","precedence":"next"}]],"$L3"]]]]
 5:I{"id":8495,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-17a9df6cf0c1b185.js","185:static/chunks/app/layout-c2a15bfb78ebb992.js"],"name":"Providers","async":false}
 6:I{"id":225,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-17a9df6cf0c1b185.js","185:static/chunks/app/layout-c2a15bfb78ebb992.js"],"name":"Header","async":false}
 7:I{"id":1443,"chunks":["272:static/chunks/webpack-18e41208812278a9.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
 8:I{"id":8639,"chunks":["272:static/chunks/webpack-18e41208812278a9.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
 b:I{"id":3640,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-17a9df6cf0c1b185.js","185:static/chunks/app/layout-c2a15bfb78ebb992.js"],"name":"Footer","async":false}
-4:T49b,
+4:T50f,
               if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js').then(function(reg) {
-                    reg.update();
-                    console.log('SW registered:', reg.scope);
-                  }).catch(function(err) {
-                    console.log('SW reg failed:', err);
-                  });
+                navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                  for (let registration of registrations) {
+                    registration.unregister();
+                  }
                 });
+                if (typeof caches !== 'undefined') {
+                  caches.keys().then(function(names) {
+                    for (let name of names) {
+                      caches.delete(name);
+                    }
+                  });
+                }
               }
               // Automatically reload the page when a ChunkLoadError occurs (due to new deployment)
               window.addEventListener('error', function(e) {

@@ -359,16 +359,14 @@ export function Header() {
             <span>{language === 'ru' ? 'Каталог' : 'Katalog'}</span>
           </Link>
 
-          {/* Compare */}
-          <Link href="/compare" className={`relative flex flex-col items-center gap-1 text-xs font-medium transition-colors ${pathname === '/compare' ? 'text-red-500' : 'text-gray-400 hover:text-white'}`}>
-            <Scale className="w-5 h-5" />
-            {compareCount > 0 && (
-              <span className="absolute -top-1 right-2 w-4 h-4 bg-red-500 rounded-full text-[10px] flex items-center justify-center text-white font-bold">
-                {compareCount}
-              </span>
-            )}
-            <span>{language === 'ru' ? 'Сравнение' : 'Solishtirish'}</span>
-          </Link>
+          {/* Search Button */}
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="flex flex-col items-center gap-1 text-xs font-medium text-gray-400 hover:text-white transition-colors"
+          >
+            <Search className="w-5 h-5" />
+            <span>{language === 'ru' ? 'Поиск' : 'Qidiruv'}</span>
+          </button>
 
           {/* Cart */}
           <Link href="/cart" className={`relative flex flex-col items-center gap-1 text-xs font-medium transition-colors ${pathname === '/cart' ? 'text-red-500' : 'text-gray-400 hover:text-white'}`}>

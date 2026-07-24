@@ -1,14 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Search, ShoppingCart, Menu, X, ChevronDown, Scale } from 'lucide-react';
+import { Search, ShoppingCart, Menu, X, ChevronDown, Scale, Grid3X3 } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCart } from '@/hooks/useCart';
 import { Language } from '@/lib/i18n';
+import { getProducts, getImageUrl, Product } from '@/lib/api';
 
 const navLinks = [
   { href: '/', key: 'home' },
@@ -24,11 +25,40 @@ export function Header() {
   const { language, setLanguage, t } = useLanguage();
   const { getItemCount, compareItems } = useCart();
   const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [productsList, setProductsList] = useState<Product[]>([]);
   const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (isSearchOpen && productsList.length === 0) {
+      getProducts().then((res) => {
+        if (res) setProductsList(res);
+      });
+    }
+  }, [isSearchOpen, productsList.length]);
+
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const q = searchQuery.toLowerCase().trim();
+    return productsList.filter((p) => {
+      const nameRu = (p.name_ru || '').toLowerCase();
+      const nameUz = (p.name_uz || '').toLowerCase();
+      const brand = (p.brand || '').toLowerCase();
+      return nameRu.includes(q) || nameUz.includes(q) || brand.includes(q);
+    }).slice(0, 6);
+  }, [searchQuery, productsList]);
+
+  const handleSearchSubmit = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/catalog?q=${encodeURIComponent(searchQuery.trim())}`);
+      setIsSearchOpen(false);
+    }
+  };
 
   const cartCount = mounted ? getItemCount() : 0;
   const compareCount = mounted ? compareItems.length : 0;
@@ -231,9 +261,9 @@ export function Header() {
               className="max-w-2xl mx-auto mt-20 px-4"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="bg-neutral-900 rounded-2xl p-4 shadow-2xl">
-                <div className="flex items-center gap-4">
-                  <Search className="w-6 h-6 text-gray-400" />
+              <div className="bg-neutral-900 border border-gray-800 rounded-2xl p-4 shadow-2xl overflow-hidden">
+                <form onSubmit={handleSearchSubmit} className="flex items-center gap-4 border-b border-gray-800 pb-3">
+                  <Search className="w-6 h-6 text-red-500 shrink-0" />
                   <input
                     type="text"
                     value={searchQuery}
@@ -242,13 +272,68 @@ export function Header() {
                     className="flex-1 bg-transparent text-lg text-white placeholder-gray-500 outline-none"
                     autoFocus
                   />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery('')}
+                      className="p-1 text-gray-500 hover:text-gray-300 text-xs font-semibold uppercase"
+                    >
+                      Очистить
+                    </button>
+                  )}
                   <button
+                    type="button"
                     onClick={() => setIsSearchOpen(false)}
                     className="p-2 text-gray-400 hover:text-white"
                   >
                     <X className="w-5 h-5" />
                   </button>
-                </div>
+                </form>
+
+                {/* Live Search Results */}
+                {searchQuery.trim() !== '' && (
+                  <div className="mt-3 max-h-96 overflow-y-auto space-y-2 pr-1 custom-scrollbar">
+                    {searchResults.length > 0 ? (
+                      <>
+                        {searchResults.map((prod) => (
+                          <Link
+                            key={prod.id}
+                            href={`/product?slug=${prod.slug}`}
+                            onClick={() => setIsSearchOpen(false)}
+                            className="flex items-center gap-4 p-2.5 rounded-xl hover:bg-neutral-800/80 transition-colors border border-transparent hover:border-gray-800 group"
+                          >
+                            <div className="relative w-12 h-12 rounded-lg bg-neutral-950 overflow-hidden shrink-0 border border-gray-800">
+                              <img
+                                src={prod.images?.[0] || getImageUrl(null, prod.id)}
+                                alt={language === 'ru' ? prod.name_ru : prod.name_uz}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                              />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-sm font-medium text-white group-hover:text-red-400 truncate">
+                                {language === 'ru' ? prod.name_ru : prod.name_uz}
+                              </h4>
+                              <p className="text-xs text-gray-400">
+                                {prod.brand ? <span className="text-red-500 font-semibold mr-2">{prod.brand}</span> : null}
+                                <span>{prod.price ? `${prod.price.toLocaleString()} сум` : ''}</span>
+                              </p>
+                            </div>
+                          </Link>
+                        ))}
+                        <button
+                          onClick={() => handleSearchSubmit()}
+                          className="w-full mt-2 py-2.5 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 text-sm font-medium text-center border border-red-500/20 transition-colors"
+                        >
+                          {language === 'ru' ? `Посмотреть все результаты (${searchResults.length}+)` : `Barcha natijalarni ko'rish (${searchResults.length}+)`}
+                        </button>
+                      </>
+                    ) : (
+                      <div className="py-8 text-center text-gray-400 text-sm">
+                        {language === 'ru' ? `По запросу «${searchQuery}» ничего не найдено` : `«${searchQuery}» so'rovi bo'yicha hech narsa topilmadi`}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>

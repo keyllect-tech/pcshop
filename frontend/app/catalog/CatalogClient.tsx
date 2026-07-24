@@ -73,7 +73,12 @@ export default function CatalogPage() {
   const [inStockOnly, setInStockOnly] = useState(false);
   const [onlyDiscounts, setOnlyDiscounts] = useState(searchParams.get('discount') === 'true' || searchParams.get('promo') === 'true');
   const [sortBy, setSortBy] = useState('newest');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || searchParams.get('search') || '');
+
+  useEffect(() => {
+    const q = searchParams.get('q') || searchParams.get('search') || '';
+    setSearchQuery(q);
+  }, [searchParams]);
 
   // Get unique brands from products
   const brands = useMemo(() => {

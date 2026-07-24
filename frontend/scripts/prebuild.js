@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://informal-rodina-bave-hub-2e898989.koyeb.app/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://relative-tyne-dus-23fc21cf.koyeb.app/api';
 
 // Clean URL
 let baseUrl = API_URL.endsWith('/') ? API_URL.slice(0, -1) : API_URL;
@@ -11,7 +11,7 @@ if (!baseUrl.endsWith('/api')) {
 
 // Intercept legacy domain
 if (!baseUrl || baseUrl.includes('pcshop.uz') || baseUrl.includes('storepcshop.uz') || !baseUrl.includes('koyeb.app')) {
-  baseUrl = 'https://informal-rodina-bave-hub-2e898989.koyeb.app/api';
+  baseUrl = 'https://relative-tyne-dus-23fc21cf.koyeb.app/api';
 }
 
 const CACHE_DIR = path.join(process.cwd(), 'api-cache');
@@ -58,7 +58,7 @@ async function main() {
     console.log('[Prebuild] Fetching products...');
     const productsData = await fetchWithRetry(`${baseUrl}/products/`);
     
-    const BACKEND_MEDIA_ORIGIN = 'https://informal-rodina-bave-hub-2e898989.koyeb.app';
+    const BACKEND_MEDIA_ORIGIN = 'https://relative-tyne-dus-23fc21cf.koyeb.app';
     const getImageUrl = (url) => {
       if (!url) return '';
       if (url.startsWith('http://') || url.startsWith('https://')) {

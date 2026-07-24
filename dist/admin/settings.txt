@@ -1,13 +1,13 @@
-1:HL["/_next/static/css/6916a2d0b5d8d884.css","style"]
-0:["5XxDB_8A-yWQ8WgmNGjzy",[[["",{"children":["admin",{"children":["settings",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/6916a2d0b5d8d884.css","precedence":"next"}]],"$L3"]]]]
-5:I{"id":8495,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-8353933538b98f38.js","185:static/chunks/app/layout-7e569ae8fe8e834d.js"],"name":"Providers","async":false}
-6:I{"id":225,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-8353933538b98f38.js","185:static/chunks/app/layout-7e569ae8fe8e834d.js"],"name":"Header","async":false}
-7:I{"id":1443,"chunks":["272:static/chunks/webpack-7ae1cdd04235ce98.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
-8:I{"id":8639,"chunks":["272:static/chunks/webpack-7ae1cdd04235ce98.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
+1:HL["/_next/static/css/5e6220ffc4cd5728.css","style"]
+0:["07-CjcllpraUIetZGeGec",[[["",{"children":["admin",{"children":["settings",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/5e6220ffc4cd5728.css","precedence":"next"}]],"$L3"]]]]
+5:I{"id":8495,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-17a9df6cf0c1b185.js","185:static/chunks/app/layout-c2a15bfb78ebb992.js"],"name":"Providers","async":false}
+6:I{"id":225,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-17a9df6cf0c1b185.js","185:static/chunks/app/layout-c2a15bfb78ebb992.js"],"name":"Header","async":false}
+7:I{"id":1443,"chunks":["272:static/chunks/webpack-18e41208812278a9.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
+8:I{"id":8639,"chunks":["272:static/chunks/webpack-18e41208812278a9.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
 9:I{"id":5149,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","91:static/chunks/app/admin/layout-a165fe31f6b7c95c.js"],"name":"","async":false}
-b:I{"id":5146,"chunks":["272:static/chunks/webpack-7ae1cdd04235ce98.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
+b:I{"id":5146,"chunks":["272:static/chunks/webpack-18e41208812278a9.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
 c:I{"id":9703,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","140:static/chunks/app/admin/settings/page-ae6cb31345268b45.js"],"name":"","async":false}
-d:I{"id":3640,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-8353933538b98f38.js","185:static/chunks/app/layout-7e569ae8fe8e834d.js"],"name":"Footer","async":false}
+d:I{"id":3640,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-17a9df6cf0c1b185.js","185:static/chunks/app/layout-c2a15bfb78ebb992.js"],"name":"Footer","async":false}
 4:T49b,
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {

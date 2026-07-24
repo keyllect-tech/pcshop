@@ -1,8 +1,8 @@
-let rawBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://informal-rodina-bave-hub-2e898989.koyeb.app/api';
+let rawBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://relative-tyne-dus-23fc21cf.koyeb.app/api';
 
 // Force all API traffic to the active Koyeb backend server
 if (!rawBaseUrl || rawBaseUrl.includes('pcshop.uz') || rawBaseUrl.includes('storepcshop.uz') || !rawBaseUrl.includes('koyeb.app')) {
-  rawBaseUrl = 'https://informal-rodina-bave-hub-2e898989.koyeb.app/api';
+  rawBaseUrl = 'https://relative-tyne-dus-23fc21cf.koyeb.app/api';
 }
 
 if (rawBaseUrl.endsWith('/')) {
@@ -143,7 +143,7 @@ async function fetchProductsInBackground() {
   }
 }
 
-export const BACKEND_MEDIA_ORIGIN = 'https://informal-rodina-bave-hub-2e898989.koyeb.app';
+export const BACKEND_MEDIA_ORIGIN = 'https://relative-tyne-dus-23fc21cf.koyeb.app';
 
 export const getImageUrl = (url: string): string => {
   if (!url) return '';

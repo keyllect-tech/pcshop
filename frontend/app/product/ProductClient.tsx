@@ -57,7 +57,7 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [activeTab, setActiveTab] = useState<'specs' | 'reviews'>('specs');
+  const [activeTab, setActiveTab] = useState<'desc' | 'specs' | 'reviews'>('desc');
   const [showAddedToCart, setShowAddedToCart] = useState(false);
   const [tgLink, setTgLink] = useState('https://telegram.me/pcshop_uzz');
 
@@ -342,10 +342,22 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
               </div>
 
               {/* Warranty */}
-              <div className="flex items-center gap-2 mb-8 text-gray-400">
+              <div className="flex items-center gap-2 mb-6 text-gray-400">
                 <Shield className="w-5 h-5 text-red-500" />
                 <span>{t.product.warranty}: {product.warranty_months} {t.product.months}</span>
               </div>
+
+              {/* Description preview */}
+              {description && (
+                <div className="mb-8 p-4 rounded-xl bg-neutral-900/80 border border-gray-800">
+                  <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                    {language === 'ru' ? 'Описание товара' : 'Tavsif'}
+                  </h3>
+                  <p className="text-sm text-gray-300 whitespace-pre-line leading-relaxed">
+                    {description}
+                  </p>
+                </div>
+              )}
 
               {/* Color swatches */}
               {uniqueColors.length > 0 && (
@@ -477,6 +489,16 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
         <div className="mt-12">
           <div className="flex gap-4 border-b border-gray-800 mb-6">
             <button
+              onClick={() => setActiveTab('desc')}
+              className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
+                activeTab === 'desc'
+                  ? 'text-red-500 border-red-500'
+                  : 'text-gray-400 border-transparent hover:text-white'
+              }`}
+            >
+              {language === 'ru' ? 'Описание' : 'Tavsif'}
+            </button>
+            <button
               onClick={() => setActiveTab('specs')}
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === 'specs'
@@ -499,7 +521,17 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
           </div>
 
           <AnimatePresence mode="wait">
-            {activeTab === 'specs' ? (
+            {activeTab === 'desc' ? (
+              <motion.div
+                key="desc"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="p-6 rounded-2xl bg-neutral-900 border border-gray-800 text-gray-300 leading-relaxed whitespace-pre-line"
+              >
+                {description || (language === 'ru' ? 'Описание отсутствует' : 'Tavsif mavjud emas')}
+              </motion.div>
+            ) : activeTab === 'specs' ? (
               <motion.div
                 key="specs"
                 initial={{ opacity: 0, y: 10 }}

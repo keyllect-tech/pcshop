@@ -422,17 +422,21 @@ export async function getProducts(options?: { category_slug?: string; limit?: nu
   }
 }
 
-export async function getProductBySlug(slug: string): Promise<Product | null> {
+export async function getProductBySlug(slugOrId?: string | number | null): Promise<Product | null> {
+  if (!slugOrId) return null;
   const products = await getProducts();
-  const product = products.find(p => p.slug === slug);
+  const targetStr = String(slugOrId).toLowerCase().trim();
+  const product = products.find(p => p.slug?.toLowerCase() === targetStr || String(p.id) === targetStr);
   return product || null;
 }
 
-export async function getSimilarProducts(categoryId: number, excludeId: number, limit = 4): Promise<Product[]> {
+export async function getSimilarProducts(categoryId: number, excludeId: number, limit = 4, categorySlug?: string): Promise<Product[]> {
   const products = await getProducts();
-  return products
-    .filter(p => p.category_id === categoryId && p.id !== excludeId)
-    .slice(0, limit);
+  let filtered = products.filter(p => p.id !== excludeId && (p.category_id === categoryId || (categorySlug && p.category_slug === categorySlug)));
+  if (filtered.length === 0) {
+    filtered = products.filter(p => p.id !== excludeId);
+  }
+  return filtered.slice(0, limit);
 }
 
 export async function getReviews(productId: number): Promise<Review[]> {

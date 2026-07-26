@@ -48,7 +48,7 @@ interface Review {
 export default function ProductPage({ overrideSlug }: { overrideSlug?: string }) {
   const params = useParams();
   const searchParams = useSearchParams();
-  const slug = overrideSlug || searchParams.get('slug') || (params?.slug as string);
+  const slug = overrideSlug || searchParams.get('slug') || searchParams.get('id') || (params?.slug as string);
   const { t, language } = useLanguage();
   const { addItem, addToCompare, compareItems } = useCart();
 

@@ -102,15 +102,17 @@ export default function CatalogPage() {
 
     // Category filter
     if (selectedCategory) {
-      const cat = categories.find(c => c.slug === selectedCategory);
-      if (cat) {
-        result = result.filter(p => p.category_id === cat.id);
-      }
+      const cat = categories.find(c => c.slug === selectedCategory || String(c.id) === selectedCategory);
+      result = result.filter(p =>
+        (cat && p.category_id === cat.id) ||
+        p.category_slug === selectedCategory ||
+        (cat && p.category_slug === cat.slug)
+      );
     }
 
     // Brand filter
     if (selectedBrand.length > 0) {
-      result = result.filter(p => selectedBrand.includes(p.brand));
+      result = result.filter(p => p.brand && selectedBrand.includes(p.brand));
     }
 
     // Price filter
@@ -129,7 +131,6 @@ export default function CatalogPage() {
       if (hasAnyRealDiscount) {
         result = result.filter(p => p.old_price && p.old_price > p.price);
       } else {
-        // Fallback: If no real discounts exist in DB, simulate discounts for all products in this view
         result = result.map(p => ({
           ...p,
           old_price: Math.round(p.price * 1.15)
@@ -139,11 +140,14 @@ export default function CatalogPage() {
 
     // Search filter
     if (searchQuery) {
-      const query = searchQuery.toLowerCase();
+      const query = searchQuery.toLowerCase().trim();
       result = result.filter(p =>
         p.name_ru.toLowerCase().includes(query) ||
         p.name_uz.toLowerCase().includes(query) ||
-        p.brand?.toLowerCase().includes(query)
+        (p.brand && p.brand.toLowerCase().includes(query)) ||
+        (p.category_slug && p.category_slug.toLowerCase().includes(query)) ||
+        (p.description_ru && p.description_ru.toLowerCase().includes(query)) ||
+        (p.description_uz && p.description_uz.toLowerCase().includes(query))
       );
     }
 

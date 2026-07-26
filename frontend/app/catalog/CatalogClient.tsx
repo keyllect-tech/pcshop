@@ -11,12 +11,13 @@ import {
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCart } from '@/hooks/useCart';
 import Link from 'next/link';
-import { getCategories, getProducts, getImageUrl } from '@/lib/api';
+import { getCategories, getProducts, getImageUrl, getCategoryFallbackImage } from '@/lib/api';
 
 
 interface Product {
   id: number;
   category_id: number;
+  category_slug?: string;
   name_ru: string;
   name_uz: string;
   slug: string;
@@ -305,7 +306,7 @@ export default function CatalogPage() {
             viewMode === 'list' ? 'w-48 flex-shrink-0' : 'aspect-square'
           }`}>
             <img
-              src={!imgError && product.images?.[0] ? getImageUrl(product.images[0], product.id) : getImageUrl(null, product.id)}
+              src={!imgError && product.images?.[0] ? getImageUrl(product.images[0], product.category_slug, name) : getCategoryFallbackImage(product.category_slug, name)}
               alt={name}
               onError={() => setImgError(true)}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

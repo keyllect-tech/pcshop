@@ -1,0 +1,196 @@
+1:HL["/_next/static/css/52710c16a1a51e28.css","style"]
+0:["-MdAjLxy8h35cdUtib_U-",[[["",{"children":[["city","fergana","d"],{"children":[["category","materinskie-platy","d"],{"children":["__PAGE__?{\"city\":\"fergana\",\"category\":\"materinskie-platy\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/52710c16a1a51e28.css","precedence":"next"}]],"$L3"]]]]
+5:I{"id":8495,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-32628f4d5c8655e7.js","185:static/chunks/app/layout-a0908430f9f7a43b.js"],"name":"Providers","async":false}
+6:I{"id":225,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-32628f4d5c8655e7.js","185:static/chunks/app/layout-a0908430f9f7a43b.js"],"name":"Header","async":false}
+7:I{"id":1443,"chunks":["272:static/chunks/webpack-52bf4c1d29726fda.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
+8:I{"id":8639,"chunks":["272:static/chunks/webpack-52bf4c1d29726fda.js","971:static/chunks/fd9d1056-d6c88b1ba5f07576.js","864:static/chunks/864-3aaa5f2d97c836a3.js"],"name":"","async":false}
+b:I{"id":3640,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-32628f4d5c8655e7.js","185:static/chunks/app/layout-a0908430f9f7a43b.js"],"name":"Footer","async":false}
+4:T50f,
+              if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                  for (let registration of registrations) {
+                    registration.unregister();
+                  }
+                });
+                if (typeof caches !== 'undefined') {
+                  caches.keys().then(function(names) {
+                    for (let name of names) {
+                      caches.delete(name);
+                    }
+                  });
+                }
+              }
+              // Automatically reload the page when a ChunkLoadError occurs (due to new deployment)
+              window.addEventListener('error', function(e) {
+                if (e.message && (e.message.indexOf('ChunkLoadError') > -1 || e.message.indexOf('Loading chunk') > -1)) {
+                  window.location.reload();
+                }
+              }, true);
+              window.addEventListener('unhandledrejection', function(e) {
+                if (e.reason && (e.reason.name === 'ChunkLoadError' || (e.reason.message && (e.reason.message.indexOf('ChunkLoadError') > -1 || e.reason.message.indexOf('Loading chunk') > -1)))) {
+                  window.location.reload();
+                }
+              });
+            2:[null,["$","html",null,{"lang":"ru","className":"dark","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"name":"theme-color","content":"#ef4444"}],["$","meta",null,{"name":"mobile-web-app-capable","content":"yes"}],["$","meta",null,{"name":"apple-mobile-web-app-capable","content":"yes"}],["$","meta",null,{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"PcShop_uz\",\"url\":\"https://storepcshop.uz\",\"logo\":\"https://storepcshop.uz/logo.png\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"+998-99-823-09-90\",\"contactType\":\"customer service\",\"areaServed\":\"UZ\",\"availableLanguage\":[\"Russian\",\"Uzbek\"]},\"sameAs\":[\"https://telegram.me/pcshop_uzz\"]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"ComputerStore\",\"name\":\"PcShop_uz\",\"image\":\"https://storepcshop.uz/logo.png\",\"@id\":\"https://storepcshop.uz/#localbusiness\",\"url\":\"https://storepcshop.uz\",\"telephone\":[\"+998998230990\",\"+998888907000\"],\"priceRange\":\"$$\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"ул. Лабзак, 2А\",\"addressLocality\":\"Ташкент\",\"addressRegion\":\"Ташкент\",\"postalCode\":\"100000\",\"addressCountry\":\"UZ\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":41.3223,\"longitude\":69.2653},\"department\":{\"@type\":\"ComputerStore\",\"name\":\"PcShop_uz — Малика\",\"telephone\":\"+998888907000\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Торговые ряды Малика, 31б\",\"addressLocality\":\"Ташкент\",\"addressRegion\":\"Ташкент\",\"postalCode\":\"100000\",\"addressCountry\":\"UZ\"}},\"openingHoursSpecification\":{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\",\"Sunday\"],\"opens\":\"11:00\",\"closes\":\"21:00\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"PcShop_uz\",\"url\":\"https://storepcshop.uz\",\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://storepcshop.uz/catalog?search={search_term_string}\"},\"query-input\":\"required name=search_term_string\"}}"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$4"}}]]}],["$","body",null,{"className":"__className_fcbcbf min-h-screen bg-neutral-950 text-white","children":["$","$L5",null,{"children":[["$","$L6",null,{}],["$","main",null,{"className":"min-h-screen pb-20 lg:pb-0","children":["$","$L7",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","template":["$","$L8",null,{}],"templateStyles":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"childProp":{"current":["$","$L7",null,{"parallelRouterKey":"children","segmentPath":["children",["city","fergana","d"],"children"],"loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","template":["$","$L8",null,{}],"templateStyles":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","childProp":{"current":["$","$L7",null,{"parallelRouterKey":"children","segmentPath":["children",["city","fergana","d"],"children",["category","materinskie-platy","d"],"children"],"loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","template":["$","$L8",null,{}],"templateStyles":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","childProp":{"current":["$L9","$La",null],"segment":"__PAGE__?{\"city\":\"fergana\",\"category\":\"materinskie-platy\"}"},"styles":[]}],"segment":["category","materinskie-platy","d"]},"styles":[]}],"segment":["city","fergana","d"]},"styles":[]}]}],["$","$Lb",null,{}]]}]}]]}],null]
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Купить материнские платы в Фергане - цены, каталог | PcShop_uz"}],["$","meta","2",{"name":"description","content":"Ищете где купить материнские платы в Фергане? В PcShop_uz широкий выбор комплектующих и игровых ПК с официальной гарантией. Быстрая доставка в Фергана и регионы."}],["$","link","3",{"rel":"manifest","href":"/manifest.json"}],["$","meta","4",{"name":"keywords","content":"Материнские платы, купить материнские платы в Фергане, Ona platalar Farg'onada, PcShop_uz Фергана"}],["$","meta","5",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","link","6",{"rel":"canonical","href":"https://storepcshop.uz/fergana/materinskie-platy"}],["$","meta","7",{"name":"apple-mobile-web-app-capable","content":"yes"}],["$","meta","8",{"name":"apple-mobile-web-app-title","content":"PcShop_uz"}],["$","meta","9",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","meta","10",{"property":"og:title","content":"Купить материнские платы в Фергане - цены, каталог | PcShop_uz"}],["$","meta","11",{"property":"og:description","content":"Ищете где купить материнские платы в Фергане? В PcShop_uz широкий выбор комплектующих и игровых ПК с официальной гарантией. Быстрая доставка в Фергана и регионы."}],["$","meta","12",{"property":"og:url","content":"https://storepcshop.uz/fergana/materinskie-platy"}],["$","meta","13",{"property":"og:type","content":"website"}],["$","meta","14",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","15",{"name":"twitter:title","content":"PcShop_uz - Игровые ПК и комплектующие в Узбекистане"}],["$","meta","16",{"name":"twitter:description","content":"Магазин компьютерной техники в Узбекистане. Быстрая доставка, гарантия качества и выгодные цены."}],["$","meta","17",{"name":"twitter:image","content":"https://images.pexels.com/photos/13019724/pexels-photo-13019724.jpeg"}],["$","link","18",{"rel":"icon","href":"/icon.png?16faa03861385828","type":"image/png","sizes":"1024x1024"}]]
+c:I{"id":4857,"chunks":["470:static/chunks/470-cb6f7db84d7ec197.js","396:static/chunks/396-8b6f950d15a13c56.js","691:static/chunks/691-996b92bdce67013a.js","486:static/chunks/486-2c9d859fbab2cd7a.js","45:static/chunks/45-32628f4d5c8655e7.js","155:static/chunks/155-2d83d4ac35df6962.js","150:static/chunks/app/[city]/[category]/page-408ada288a6015d1.js"],"name":"","async":false}
+d:Td44,Ультимативный игровой ноутбук нового поколения ASUS ROG Strix G16 G614FR создан для бескомпромиссных геймеров, киберспортсменов и создателей тяжелого контента. В основе этого монстра лежит новейший процессор AMD Ryzen 9 9955HX3D с революционной технологией 3D V-Cache, которая обеспечивает феноменальный прирост FPS в играх и стирает границы между мобильными и настольными ПК. За графику отвечает передовая видеокарта NVIDIA GeForce RTX 5070 Ti Laptop с 12 ГБ сверхбыстрой памяти GDDR7, поддерживающая технологии DLSS нового поколения и трассировку лучей в реальном времени. Роскошный 16-дюймовый дисплей ROG Nebula с частотой 240 Гц и разрешением WQXGA гарантирует идеальную плавность и кинематографическую точность цветопередачи.
+
+Мощность под полным контролем:
+Инновационная система охлаждения ROG Intelligent Cooling с жидким металлом на процессоре и тремя вентиляторами эффективно отводит тепло, позволяя ноутбуку стабильно работать на максимуме возможностей без троттлинга во время затяжных стримов или 3D-рендеринга.
+
+Современные интерфейсы и автономность:
+Ноутбук оснащен высокоскоростными портами USB4 Type-C и HDMI 2.1 для подключения внешних 8K-мониторов. Мощный аккумулятор емкостью 90 Вт·ч с поддержкой быстрой зарядки обеспечивает отличную автономность для работы на ходу.
+- Модель: ASUS ROG Strix G16 G614FR
+- Экран: 16″ ROG Nebula Display, WQXGA (2560×1600), IPS-level, 240Hz, 100% DCI-P3, G-Sync
+- Процессор: AMD Ryzen 9 9955HX3D (с поддержкой технологии 3D V-Cache)
+- Видеокарта: NVIDIA GeForce RTX 5070 Ti Laptop GPU (12 GB GDDR7)
+- Оперативная память: 32 GB DDR5
+- Накопитель: 1 TB PCIe 4.0 NVMe M.2 SSD
+- Беспроводная связь: Wi-Fi 6E (802.11ax) + Bluetooth 5.3
+- Сетевая карта: LAN 1 Гбит/с
+- Порты: 1 x USB4 Type-C (с поддержкой DisplayPort / Power Delivery), 1 x USB 3.2 Gen 2 Type-C, 2 x USB 3.2 Gen 2 Type-A, 1 x HDMI 2.1 FRL, 1 x RJ45 LAN, комбинированный аудиоразъём 3.5 мм
+- Операционная система: Windows 11 Home
+- Аудиосистема: 2 динамика с технологией Smart Amp, поддержка Dolby Atmos и Hi-Res Audio
+- Клавиатура: С RGB-подсветкой (посегментная настройка Aura Sync)
+- Аккумулятор: 90 Wh (4-cell Li-ion)
+- Вес: ~2.5 кгe:T934,Yangi avlodning eng kuchli oʻyin noutbuki ASUS ROG Strix G16 G614FR murosasiz geymerlar, kibersportchilar va ogʻir kontent yaratuvchilari (3D, video) uchun maxsus ishlab chiqilgan. Ushbu maxluqning asosi inqilobiy 3D V-Cache texnologiyasiga ega eng soʻnggi AMD Ryzen 9 9955HX3D protsessori boʻlib, u oʻyinlarda fenomal darajadagi yuqori FPS'ni taʼminlaydi hamda mobil noutbuk va kuchli statsionar PK oʻrtasidagi chegarani yoʻq qiladi. Grafika uchun esa 12 GB oʻta tezkor GDDR7 xotirasi va yangi avlod DLSS hamda nurlarni kuzatish (ray tracing) texnologiyalarini qoʻllab-quvvatlovchi ilgʻor NVIDIA GeForce RTX 5070 Ti noutbuk videokartasi javob beradi. Hashamatli 16 dyuymli, 240 Gts chastotali va WQXGA ruxsatli ROG Nebula displeyi mukammal silliqlik va kinematografik ranglar aniqligini kafolatlaydi.
+
+Toʻliq nazorat ostidagi quvvat:
+Protsessorda suyuq metall va uchta ventilyatorga ega ROG Intelligent Cooling innovatsion sovutish tizimi issiqlikni samarali ravishda chiqarib tashlaydi. Bu noutbukka uzoq davom etadigan strimlar yoki 3D-renderlash paytida qizib ketmasdan (trottlingsiz) maksimal quvvatda barqaror ishlash imkonini beradi.
+
+Zamonaviy interfeyslar va avtonomlik:
+Noutbuk tashqi 8K monitorlarni ulash uchun yuqori tezlikdagi USB4 Type-C va HDMI 2.1 portlari bilan jihozlangan. Tez quvvatlanish funksiyasiga ega 90 Vt·s sigʻimli kuchli akkumulyator yoʻlda ham uzoq vaqt ishlash va oʻynash erkinligini beradi.
+- Model: ASUS ROG Strix G16 G614FR
+- Ekran: 16″ ROG Nebula Display, WQXGA (2560×1600), IPS-level, 240Hz, 100% DCI-P3, G-Sync
+- Protsessor: AMD Ryzen 9 9955HX3D (3D V-Cache texnologiyasi bilan)
+- Videokarta: NVIDIA GeForce RTX 5070 Ti Laptop GPU (12 GB GDDR7)
+- Tezkor xotira (Operativka): 32 GB DDR5
+- Ma'lumot tashuvchi: 1 TB PCIe 4.0 NVMe M.2 SSD
+- Simsiz aloqa: Wi-Fi 6E (802.11ax) + Bluetooth 5.3
+- Tarmoq kartasi: LAN 1 Gb/s
+- Portlar: 1 x USB4 Type-C (DisplayPort / Power Delivery qoʻllab-quvvatlovi bilan), 1 x USB 3.2 Gen 2 Type-C, 2 x USB 3.2 Gen 2 Type-A, 1 x HDMI 2.1 FRL, 1 x RJ45 LAN, 3.5 mm kombinatsiyalangan audio ulagich
+- Operatsion tizim: Windows 11 Home
+- Ovoz tizimi: Smart Amp texnologiyasiga ega 2 ta dinamik, Dolby Atmos va Hi-Res Audio
+- Klaviatura: RGB-yoritgichli (Aura Sync har bir tugmani individual sozlash)
+- Akkumulyator: 90 Wh (4-cell Li-ion)
+- Vazni: ~2.5 kgf:Tf37,Высокопроизводительный игровой ноутбук нового поколения ASUS ROG Strix G16 (G614FM-WS94) в фирменном цвете Eclipse Gray разработан для амбициозных геймеров, стримеров и профессионалов, работающих с тяжелым контентом. Сердцем системы стал мощнейший процессор AMD Ryzen 9 9955HX, который в связке со скоростной оперативной памятью DDR5 обеспечивает колоссальную вычислительную мощность и безупречную многозадачность. Графическую подсистему представляет передовая видеокарта NVIDIA GeForce RTX 5060 с 8 ГБ видеопамяти нового поколения, поддерживающая технологии DLSS и трассировку лучей (Ray Tracing) для стабильно высокого FPS в современных AAA-играх на ультра-настройках. 16-дюймовый дисплей формата WUXGA с соотношением сторон 16:10 предлагает увеличенное рабочее пространство, что делает ноутбук идеальным инструментом для инженеров, дизайнеров и архитекторов, работающих в AutoCAD, Photoshop, Premiere Pro и программах для 3D-моделирования.
+
+Передовые технологии и интерфейсы:
+Ноутбук оснащен ультрасовременными портами USB4 Type-C и поддерживает технологию USB-C Power Delivery (от 45 до 100 Вт), позволяя подзаряжать устройство на ходу от компактных адаптеров или пауэрбанков. Беспроводной модуль стандарта Wi-Fi 6E гарантирует минимальный пинг в онлайн-матчах и стабильное скачивание тяжелых файлов без проводов.
+
+Автономность и игровые решения ROG:
+Надежная система охлаждения ROG Intelligent Cooling эффективно удерживает температуры на низком уровне при максимальных нагрузках. Емкий аккумулятор на 90 Вт·ч обеспечивает длительное время автономной работы, а встроенный высокоскоростной накопитель PCIe Gen4 SSD емкостью 1 ТБ отвечает за моментальный запуск Windows и приложений.
+- Модель: ASUS ROG Strix G16 (G614FM-WS94)
+- Экран: 16.0″ WUXGA (1920×1200), соотношение сторон 16:10, IPS-level, Anti-glare
+- Процессор: AMD Ryzen 9 9955HX (флагманская мобильная архитектура)
+- Видеокарта: NVIDIA GeForce RTX 5060 Laptop GPU (8GB GDDR6)
+- Оперативная память: 16 ГБ DDR5
+- Накопитель: 1 ТБ PCIe Gen4 NVMe M.2 SSD
+- Беспроводная связь: Wi-Fi 6E (802.11ax) + Bluetooth
+- Порты: 2 x USB-A 3.2, 2 x USB-C (включая порт с поддержкой USB4, DisplayPort и Power Delivery 45-100W), 1 x HDMI, 1 x RJ45 LAN, аудиоразъем 3.5 мм
+- Операционная система: Windows 11 Home
+- Аккумулятор: 90 Wh (4-cell Li-ion)
+- Цвет корпуса: Eclipse Gray (Затменный серый)
+- Технологии: NVIDIA DLSS, Ray Tracing, ASUS ROG Intelligent Cooling, USB-C PD10:Ta24,Yangi avlodning yuqori unumdorlikka ega oʻyin noutbuki ASUS ROG Strix G16 (G614FM-WS94) oʻzining zamonaviy Eclipse Gray korpusida ilgʻor geymerlar, strimerlar va ogʻir dasturlar bilan ishlovchi professionallar uchun maxsus yaratilgan. Tizimning yuragi kuchli AMD Ryzen 9 9955HX protsessori boʻlib, u yuqori tezlikdagi DDR5 operativ xotirasi bilan birgalikda ulkan hisoblash quvvati va mukammal koʻp vazifalilikni (многозадачность) taʼminlaydi. Grafika uchun esa yangi avlodning 8 GB video xotirasiga ega, DLSS va nurlarni kuzatish (Ray Tracing) texnologiyalarini qoʻllab-quvvatlaydigan NVIDIA GeForce RTX 5060 noutbuk videokartasi javob beradi — bu esa zamonaviy AAA-oʻyinlarda ultra-sozlamalarda barqaror yuqori FPS'ni kafolatlaydi. 16:10 nisbatli 16 dyuymli WUXGA displeyi kengaytirilgan ish maydonini taklif etadi. Bu noutbukni AutoCAD, Photoshop, Premiere Pro va 3D-modellashtirish dasturlarida ishlovchi muhandislar, dizaynerlar va me'morlar uchun mukammal vositaga aylantiradi.
+
+Ilgʻor texnologiyalar va interfeyslar:
+Noutbuk oʻta zamonaviy USB4 Type-C portlari bilan jihozlangan hamda USB-C Power Delivery (45 dan 100 Vt gacha) texnologiyasini qoʻllab-quvvatlaydi, bu esa qurilmani yoʻlda ixcham adapterlar yoki pauerbanklar orqali quvvatlash imkonini beradi. Wi-Fi 6E standarti esa onlayn oʻyinlarda minimal pingni va ogʻir fayllarni simlarsiz barqaror yuklab olishni taʼminlaydi.
+
+Avtonomlik va ROG oʻyin yechimlari:
+Ishonchli ROG Intelligent Cooling sovutish tizimi maksimal yuklamalarda ham haroratni past darajada ushlab turadi. 90 Vt·s sigʻimli akkumulyator uzoq vaqt simsiz ishlash erkinligini beradi, 1 TB hajmli yuqori tezlikdagi PCIe Gen4 SSD xotirasi esa Windows tizimi va dasturlarning lahzada ishga tushishiga xizmat qiladi.
+- Model: ASUS ROG Strix G16 (G614FM-WS94)
+- Ekran: 16.0″ WUXGA (1920×1200), tomonlar nisbati 16:10, IPS-level, Anti-glare (aksga qarshi qoplama)
+- Protsessor: AMD Ryzen 9 9955HX (flagman mobil arxitektura)
+- Videokarta: NVIDIA GeForce RTX 5060 Laptop GPU (8GB GDDR6)
+- Tezkor xotira (Operativka): 16 GB DDR5
+- Ma'lumot tashuvchi: 1 TB PCIe Gen4 NVMe M.2 SSD
+- Simsiz aloqa: Wi-Fi 6E (802.11ax) + Bluetooth
+- Portlar: 2 x USB-A 3.2, 2 x USB-C (shu jumladan USB4, DisplayPort va Power Delivery 45-100W qoʻllab-quvvatlovchi port), 1 x HDMI, 1 x RJ45 LAN, 3.5 mm kombinatsiyalangan audio ulagich
+- Operatsion tizim: Windows 11 Home
+- Akkumulyator: 90 Wh (4-cell Li-ion)
+- Korpus rangi: Eclipse Gray (Toʻq kulrang)
+- Texnologiyalar: NVIDIA DLSS, Ray Tracing, ASUS ROG Intelligent Cooling, USB-C PD11:T72c,HP Laptop AI 15-fd2050wm — это современный универсальный ноутбук, оснащенный новейшим процессором Intel Core Ultra 5 225U со встроенными ИИ-алгоритмами для оптимизации производительности и энергопотребления. Устройство идеально подходит для учебы, работы с документами, мультимедиа и ежедневных задач.
+
+Ноутбук оснащен ярким 15.6-дюймовым сенсорным Full HD IPS-экраном (300 нит), что делает управление более интуитивным и комфортным. Скоростная оперативная память DDR5 и надежный SSD-накопитель емкостью 512 ГБ обеспечивают мгновенный запуск системы Windows 11 и приложений. Это стильное и надежное решение для мобильной работы на каждый день.
+
+• Процессор: Intel Core Ultra 5 225U
+• Оперативная память: 8 ГБ DDR5
+• Накопитель: SSD 512 ГБ PCIe NVMe
+• Дисплей: 15.6" Full HD (1920x1080) IPS, сенсорный, яркость 300 нит
+• Видеокарта: Intel Graphics (интегрированная)
+• Операционная система: Windows 11 Home
+• Аккумулятор: 3-ячеечный, 41 Вт·ч
+• Веб-камера: HP True Vision HD со встроенными микрофонами
+• Беспроводные интерфейсы: Wi-Fi, Bluetooth
+• Разъемы: USB Type-C, USB Type-A, HDMI, комбинированный аудиоразъем12:T48c,HP Laptop AI 15-fd2050wm — bu unumdorlik va energiya tejamkorligini oshirish uchun sun'iy intellekt (AI) algoritmlariga ega bo'lgan eng so'nggi Intel Core Ultra 5 225U protsessori bilan jihozlangan zamonaviy universal noutbuk. Qurilma o'qish, hujjatlar bilan ishlash, multimediya va kunlik vazifalar uchun juda mos keladi.
+
+Noutbuk yorqin 15.6 dyuymli sensori Full HD IPS-ekran (300 nit) bilan ta'minlangan bo'lib, u boshqaruvni yanada qulay va intuitiv qiladi. Tezkor DDR5 operativ xotirasi va 512 GB hajmli ishonchli SSD to'plagich Windows 11 tizimi va dasturlarning tezkor yuklanishini ta'minlaydi. Bu har kungi mobil ish uchun zamonaviy va ishonchli yechimdir.
+
+• Protsessor: Intel Core Ultra 5 225U
+• Operativ xotira: 8 GB DDR5
+• Xotira to'plagich: SSD 512 GB PCIe NVMe
+• Displey: 15.6" Full HD (1920x1080) IPS, sensorli, yorqinligi 300 nit
+• Videokarta: Intel Graphics (ichki o'rnatilgan)
+• Operatsion tizim: Windows 11 Home
+• Akkumulyator: 3-yacheykali, 41 Vt·soat
+• Veb-kamera: Microfonli HP True Vision HD
+• Simsiz interfeyslar: Wi-Fi, Bluetooth
+• Portlar: USB Type-C, USB Type-A, HDMI, kombinatsiyalangan audio ulagich13:T6eb,HP OmniBook 3 16 (16-bu0130wm) — это современный полноразмерный ноутбук для работы, учебы и мультимедиа. Главной особенностью модели является большой 16-дюймовый IPS-дисплей с соотношением сторон 16:10 (1920x1200) и яркостью 300 нит, обеспечивающий отличную цветопередачу и высокий комфорт при работе с текстом, документами и контентом.
+
+Ноутбук оснащен 8-ядерным процессором Intel Core 3 N355, энергоэффективной оперативной памятью LPDDR5 объемом 8 ГБ и быстрым SSD-накопителем на 256 ГБ. Для быстрой и безопасной авторизации в системе предусмотрена инфракрасная камера HP IR Camera с поддержкой функции Windows Hello.
+
+• Модель: HP OmniBook 3 16 (16-bu0130wm)
+• Процессор: Intel Core 3 N355 (8 ядер, до 3.9 ГГц)
+• Оперативная память: 8 ГБ LPDDR5 (встроенная)
+• Накопитель: SSD 256 ГБ PCIe NVMe
+• Дисплей: 16" IPS, WUXGA (1920x1200), 16:10, яркость 300 нит
+• Графика: Intel UHD Graphics
+• Операционная система: Windows 11 Home
+• Камера: HP IR Camera (с поддержкой Windows Hello)
+• Аккумулятор: 41 Вт·ч
+• Беспроводные интерфейсы: Wi-Fi, Bluetooth
+• Разъемы: USB Type-C, USB Type-A, HDMI, комбинированный аудиоразъем14:T4ac,HP OmniBook 3 16 (16-bu0130wm) — bu ish, o'qish va multimediya uchun mo'ljallangan zamonaviy to'liq o'lchamli noutbuk. Modelning asosiy afzalligi 16:10 nisbatdagi (1920x1200) va 300 nit yorqinlikka ega katta 16 dyuymli IPS ekrani bo'lib, u matnlar, hujjatlar va kontent bilan ishlashda ajoyib rang uzatish va qulaylikni ta'minlaydi.
+
+Noutbuk 8 yadroli Intel Core 3 N355 protsessori, 8 GB tezkor va energiya tejamkor LPDDR5 operativ xotirasi hamda 256 GB hajmli tezkor SSD to'plagich bilan jihozlangan. Tizimga tez va xavfsiz kirish uchun Windows Hello funksiyasini qo'llab-quvvatlaydigan HP IR infraqizil kamerasi ko'zda tutilgan.
+
+• Model: HP OmniBook 3 16 (16-bu0130wm)
+• Protsessor: Intel Core 3 N355 (8 yadro, 3.9 GHz gacha)
+• Operativ xotira: 8 GB LPDDR5 (plataga o'rnatilgan)
+• Xotira to'plagich: SSD 256 GB PCIe NVMe
+• Displey: 16" IPS, WUXGA (1920x1200), 16:10, yorqinligi 300 nit
+• Videokarta: Intel UHD Graphics
+• Operatsion tizim: Windows 11 Home
+• Kamera: HP IR Camera (Windows Hello qo'llab-quvvatlaydi)
+• Akkumulyator: 41 Vt·soat
+• Simsiz interfeyslar: Wi-Fi, Bluetooth
+• Portlar: USB Type-C, USB Type-A, HDMI, kombinatsiyalangan audio ulagich15:T8a6,ASUS Vivobook 14 X1404VA-NK712 — это стильный, компактный и производительный 14-дюймовый ноутбук, созданный для эффективной работы, учебы и повседневных задач. Ноутбук выполнен в тонком и легком корпусе с прочностью военного стандарта MIL-STD-810H, что делает его идеальным спутником в поездках и ежедневных перемещениях.
+
+Модель оснащена мощным процессором Intel Core 13-го поколения, быстрым NVMe SSD-накопителем и качественным IPS-дисплеем с узкими рамками NanoEdge. Удобная клавиатура ErgoSense, раскрывающийся на 180° шарнир, шторка приватности для веб-камеры и антибактериальное покрытие ASUS Antimicrobial Guard обеспечивают максимальный комфорт и безопасность при использовании.
+
+• Процессор: Intel Core i5-1335U (10 ядер / 12 потоков, до 4.6 ГГц)
+• Оперативная память: 12 ГБ DDR4 (с возможностью расширения)
+• Накопитель: 256 ГБ SSD M.2 NVMe PCIe 4.0
+• Дисплей: 14.0" Full HD (1920x1080), IPS-уровень, матовый, NanoEdge
+• Графика: Встроенная Intel Iris Xe Graphics
+• Беспроводная связь: Wi-Fi 6 (802.11ax) + Bluetooth 5.3
+• Интерфейсы: 1x USB 3.2 Gen 1 Type-C, 2x USB 3.2 Gen 1 Type-A, 1x USB 2.0, 1x HDMI 1.4, комбинированный аудиоразъем 3.5 мм
+• Безопасность: Шторка приватности веб-камеры, сканер отпечатков пальцев (опционально)
+• Корпус: Стандарт прочности MIL-STD-810H, шарнир 180°
+• Вес: ~1.4 кг
+• Операционная система:  Windows 11 (в зависимости от поставки)16:T589,ASUS Vivobook 14 X1404VA-NK712 — bu samarali ish, o'qish va kunlik vazifalarni bajarish uchun mo'ljallangan ixcham, uslubiy va unumdor 14 dyuymli noutbukdir. Noutbuk MIL-STD-810H harbiy standartiga javob beradigan engil va mustahkam korpusda ishlab chiqarilgan bo'lib, safarlar va har kungi foydalanish uchun juda qulay.
+
+Model kuchli 13-avlod Intel Core protsessori, tezkor NVMe SSD to'plagichi hamda ingichka NanoEdge romlariga ega sifatli IPS-ekran bilan jihozlangan. Qulay ErgoSense klaturasi, 180 darajaga ochiluvchi korpus, veb-kamera maxfiylik pardasi va ASUS Antimicrobial Guard bakteriyalarga qarshi qoplamasi foydalanishda maksimal qulaylik va xavfsizlikni ta'minlaydi.
+
+• Protsessor: Intel Core i5-1335U (10 yadro / 12 oqim, 4.6 GHz gacha)
+• Operativ xotira (RAM): 12 GB DDR4 (kengaytirish imkoniyati bilan)
+• Xotira to'plagichi: 256 GB SSD M.2 NVMe PCIe 4.0
+• Displey: 14.0" Full HD (1920x1080), IPS-daraja, matli, NanoEdge
+• Grafika: O'rnatilgan Intel Iris Xe Graphics
+• Simsiz aloqa: Wi-Fi 6 (802.11ax) + Bluetooth 5.3
+• Interfeyslar: 1x USB 3.2 Gen 1 Type-C, 2x USB 3.2 Gen 1 Type-A, 1x USB 2.0, 1x HDMI 1.4, 3.5 mm kombinatsiyalangan audio ulagich
+• Xavfsizlik: Veb-kamera pardasi, barmoq izi skaneri (opsional)
+• Korpus: MIL-STD-810H mustahkamlik standarti, 180° ochilish mexanizmi
+• Og'irligi: ~1.4 kg
+• Operatsion tizim: Windows 11 (yetkazib berishga bog'liq)a:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"https://storepcshop.uz\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Фергана\",\"item\":\"https://storepcshop.uz/fergana/materinskie-platy\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Материнские платы\",\"item\":\"https://storepcshop.uz/fergana/materinskie-platy\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Как осуществляется доставка в город Фергана?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Доставка в город Фергана осуществляется курьерской службой в течение 2-3 дней. Товар надежно упаковывается и застраховывается перед отправкой.\"}},{\"@type\":\"Question\",\"name\":\"Какая гарантия предоставляется на материнские платы?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Все товары в категории \\\"Материнские платы\\\" поставляются с официальной гарантией от производителя от 12 месяцев. В случае возникновения гарантийных обязательств, вы можете обратиться в наш сервисный центр.\"}}]}"}}],["$","div",null,{"className":"min-h-screen py-8","children":["$","div",null,{"className":"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"bg-neutral-900 rounded-2xl border border-gray-800 p-8 mb-8","children":[["$","h1",null,{"className":"text-2xl md:text-4xl font-bold text-white mb-4","children":["Купить ","материнские платы"," ","в Фергане"]}],["$","p",null,{"className":"text-gray-400 mb-6 leading-relaxed","children":["Интернет-магазин PcShop_uz рад предложить вам качественные ","материнские платы"," в городе ","Фергана"," по самым доступным ценам с гарантией качества. В нашем ассортименте представлены новинки компьютерного оборудования, профессиональные комплектующие и сбалансированные готовые игровые ПК."]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-800","children":[["$","div",null,{"className":"flex gap-4","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-truck w-8 h-8 text-red-500 flex-shrink-0","children":[["$","path","wrbu53",{"d":"M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"}],["$","path","1lyqi6",{"d":"M15 18H9"}],["$","path","lysw3i",{"d":"M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"}],["$","circle","332jqn",{"cx":"17","cy":"18","r":"2"}],["$","circle","19iecd",{"cx":"7","cy":"18","r":"2"}],"$undefined"]}],["$","div",null,{"children":[["$","h3",null,{"className":"text-white font-semibold","children":["Доставка в ","Фергана"]}],["$","p",null,{"className":"text-xs text-gray-400 mt-1","children":"Курьерской службой за 2-3 дня до дверей."}]]}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield w-8 h-8 text-red-500 flex-shrink-0","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],"$undefined"]}],["$","div",null,{"children":[["$","h3",null,{"className":"text-white font-semibold","children":"Гарантия 12+ месяцев"}],["$","p",null,{"className":"text-xs text-gray-400 mt-1","children":"Официальная гарантия и обслуживание на все комплектующие."}]]}]]}],["$","div",null,{"className":"flex gap-4","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-phone w-8 h-8 text-red-500 flex-shrink-0","children":[["$","path","foiqr5",{"d":"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"}],"$undefined"]}],["$","div",null,{"children":[["$","h3",null,{"className":"text-white font-semibold","children":"Консультация эксперта"}],["$","p",null,{"className":"text-xs text-gray-400 mt-1","children":"Звоните: +998 (99) 823-09-90 или +998 (88) 890-70-00. Telegram: @pcshop_uzz."}]]}]]}]]}]]}],["$","$Lc",null,{"initialProducts":[{"id":16,"category_id":4,"category_slug":"noutbuki","name_ru":"ASUS ROG Strix G16 G614FR","name_uz":"ASUS ROG Strix G16 G614FR","slug":"asus-rog-strix-g16-g614fr","description_ru":"$d","description_uz":"$e","price":29040000,"price_usd":2400,"old_price":29040000,"stock":5,"specs":{},"characteristics":[],"images":["https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg"],"images_detail":[{"url":"https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg","color_name":null,"color_code":null}],"is_featured":true,"is_new":false,"warranty_months":12,"brand":"Asus","created_at":"2026-07-21T12:41:43.861574+05:00"},{"id":24,"category_id":4,"category_slug":"noutbuki","name_ru":"ASUS ROG Strix G16 (G614FM-WS94)","name_uz":"ASUS ROG Strix G16 (G614FM-WS94)","slug":"asus-rog-strix-g16-g614fm-ws94","description_ru":"$f","description_uz":"$10","price":19360000,"price_usd":1600,"old_price":19360000,"stock":15,"specs":{},"characteristics":[],"images":["https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg"],"images_detail":[{"url":"https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg","color_name":null,"color_code":null}],"is_featured":false,"is_new":true,"warranty_months":12,"brand":"Asus","created_at":"2026-07-21T13:08:34.542837+05:00"},{"id":64,"category_id":4,"category_slug":"noutbuki","name_ru":"HP Laptop AI 15-fd2050wm","name_uz":"HP Laptop AI 15-fd2050wm","slug":"hp-laptop-ai-15-fd2050wm","description_ru":"$11","description_uz":"$12","price":6655000,"price_usd":550,"old_price":6655000,"stock":10,"specs":{},"characteristics":[],"images":["https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg"],"images_detail":[{"url":"https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg","color_name":null,"color_code":null}],"is_featured":false,"is_new":true,"warranty_months":12,"brand":"HP","created_at":"2026-07-21T15:50:38.690132+05:00"},{"id":65,"category_id":4,"category_slug":"noutbuki","name_ru":"HP OmniBook 3 16 (16-bu0130wm)","name_uz":"HP OmniBook 3 16 (16-bu0130wm)","slug":"hp-omnibook-3-16-16-bu0130wm","description_ru":"$13","description_uz":"$14","price":5445000,"price_usd":450,"old_price":5445000,"stock":25,"specs":{},"characteristics":[],"images":["https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg"],"images_detail":[{"url":"https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg","color_name":null,"color_code":null}],"is_featured":false,"is_new":false,"warranty_months":12,"brand":"HP","created_at":"2026-07-21T15:56:23.620461+05:00"},{"id":79,"category_id":4,"category_slug":"noutbuki","name_ru":"ASUS Vivobook 14 X1404VA-NK712","name_uz":"ASUS Vivobook 14 X1404VA-NK712","slug":"asus-vivobook-14-x1404va-nk712","description_ru":"$15","description_uz":"$16","price":5082000,"price_usd":420,"old_price":5445000,"stock":1,"specs":{},"characteristics":[],"images":["https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg"],"images_detail":[{"url":"https://relative-tyne-dus-23fc21cf.koyeb.app/media/categories/noutbuki.jpg","color_name":null,"color_code":null}],"is_featured":false,"is_new":false,"warranty_months":12,"brand":"Asus","created_at":"2026-07-21T17:00:00.786234+05:00"}],"categorySlug":"materinskie-platy","cityNameRu":"Фергана","cityNameUz":"Farg'ona"}],["$","div",null,{"className":"bg-neutral-900 rounded-2xl border border-gray-800 p-8 mt-12","children":[["$","h2",null,{"className":"text-2xl font-bold text-white mb-6","children":"Часто задаваемые вопросы (FAQ)"}],["$","div",null,{"className":"space-y-6","children":[["$","div",null,{"children":[["$","h3",null,{"className":"text-lg font-semibold text-white mb-2","children":["Как купить ","материнские платы"," ","в Фергане","?"]}],["$","p",null,{"className":"text-gray-400 text-sm","children":"Для покупки вы можете добавить интересующий вас товар в корзину и оформить заказ, после чего наш менеджер свяжется с вами для подтверждения заказа. Также вы можете связаться напрямую через Telegram или по указанному телефону."}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"text-lg font-semibold text-white mb-2","children":"Какие способы оплаты поддерживаются?"}],["$","p",null,{"className":"text-gray-400 text-sm","children":"Мы принимаем наличную оплату, переводы на карты Click и Payme, а также безналичные платежи от юридических лиц."}]]}]]}]]}]]}]}]]
+9:null

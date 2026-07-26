@@ -11,11 +11,12 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCart } from '@/hooks/useCart';
-import { getProductBySlug, getSimilarProducts, getReviews, getImageUrl } from '@/lib/api';
+import { getProductBySlug, getSimilarProducts, getReviews, getImageUrl, getCategoryFallbackImage } from '@/lib/api';
 
 interface Product {
   id: number;
   category_id: number;
+  category_slug?: string;
   name_ru: string;
   name_uz: string;
   slug: string;
@@ -164,8 +165,10 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
     );
   }
 
-  const name = language === 'ru' ? product.name_ru : product.name_uz;
-  const description = language === 'ru' ? product.description_ru : product.description_uz;
+  const name = language === 'ru' ? (product.name_ru || product.name_uz) : (product.name_uz || product.name_ru);
+  const rawDesc = language === 'ru' ? (product.description_ru || product.description_uz) : (product.description_uz || product.description_ru);
+  const specSummary = Object.entries(product.specs || {}).map(([k, v]) => `${k}: ${v}`).join('\n');
+  const description = rawDesc || (specSummary ? `Характеристики:\n${specSummary}` : `Высококачественный товар ${name} с официальной гарантией ${product.warranty_months} мес.`);
   const isInCompare = compareItems.includes(product.id);
 
   // Get list of unique colors that have both a name and a code
@@ -190,43 +193,31 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
   return (
     <div className="min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-          <Link href="/" className="hover:text-white transition-colors">
-            {t.nav.home}
-          </Link>
-          <ChevronLeft className="w-4 h-4 rotate-180" />
-          <Link href="/catalog" className="hover:text-white transition-colors">
-            {t.nav.catalog}
-          </Link>
-          <ChevronLeft className="w-4 h-4 rotate-180" />
-          <span className="text-white">{name}</span>
-        </nav>
-
-        {/* Back button */}
+        {/* Back Link */}
         <Link
           href="/catalog"
-          className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-6 transition-colors"
+          className="inline-flex items-center text-sm text-gray-400 hover:text-white mb-8 transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-4 h-4 mr-2" />
           {language === 'ru' ? 'Назад в каталог' : 'Katalogga qaytish'}
         </Link>
 
-        {/* Main content */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Image Gallery */}
-          <div>
+        {/* Product Details Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          {/* Left Column: Image Gallery */}
+          <div className="space-y-4">
+            {/* Main Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className="relative aspect-square rounded-2xl overflow-hidden bg-neutral-900"
             >
               <img
-                src={getImageUrl(product.images?.[selectedImage] || null, product.id)}
+                src={getImageUrl(product.images?.[selectedImage] || null, product.category_slug, name)}
                 alt={name}
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = getImageUrl(null, product.id);
+                  (e.target as HTMLImageElement).src = getCategoryFallbackImage(product.category_slug, name);
                 }}
               />
 

@@ -304,7 +304,7 @@ export function Header() {
                           >
                             <div className="relative w-12 h-12 rounded-lg bg-neutral-950 overflow-hidden shrink-0 border border-gray-800">
                               <img
-                                src={prod.images?.[0] || getImageUrl(null, prod.id)}
+                                src={getImageUrl(prod.images?.[0] || null, (prod as any).category_slug, language === 'ru' ? prod.name_ru : prod.name_uz)}
                                 alt={language === 'ru' ? prod.name_ru : prod.name_uz}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                               />

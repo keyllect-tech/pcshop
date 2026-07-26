@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /compare/
+
+Sitemap: https://storepcshop.uz/sitemap.xml

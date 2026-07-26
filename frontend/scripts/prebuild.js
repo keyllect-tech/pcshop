@@ -59,10 +59,62 @@ async function main() {
     const productsData = await fetchWithRetry(`${baseUrl}/products/`);
     
     const BACKEND_MEDIA_ORIGIN = 'https://relative-tyne-dus-23fc21cf.koyeb.app';
-    const getImageUrl = (url, productId) => {
+
+    function getCategoryFallbackImage(categorySlug, productName) {
+      const slug = (categorySlug || '').toLowerCase();
+      const name = (productName || '').toLowerCase();
+
+      if (slug.includes('monitor') || name.includes('monitor') || name.includes('ultragear') || name.includes('zowie xl') || name.includes('27gx') || name.includes('benq zowie')) {
+        return '/media/categories/monitory.jpg';
+      }
+      if (slug.includes('process') || name.includes('ryzen') || name.includes('intel') || name.includes('core i') || name.includes('processor')) {
+        return '/media/categories/processory.jpg';
+      }
+      if (slug.includes('video') || name.includes('rtx') || name.includes('geforce') || name.includes('radeon') || name.includes('videocard')) {
+        return '/media/categories/videokarty.jpg';
+      }
+      if (slug.includes('klaviat') || name.includes('keyboard') || name.includes('aula') || name.includes('akko') || name.includes('mechanical')) {
+        return '/media/categories/klaviatury.jpg';
+      }
+      if (slug.includes('myshk') || name.includes('mouse') || name.includes('atk blazing') || name.includes('superlight') || name.includes('zowie za')) {
+        return '/media/categories/myshki.jpg';
+      }
+      if (slug.includes('naushn') || name.includes('headset') || name.includes('blackshark') || name.includes('hyperx') || name.includes('epos')) {
+        return '/media/categories/naushniki.jpg';
+      }
+      if (slug.includes('plat') || name.includes('b850') || name.includes('b650') || name.includes('z790') || name.includes('x870') || name.includes('motherboard')) {
+        return '/media/categories/platy.jpg';
+      }
+      if (slug.includes('bloki') || name.includes('power supply') || name.includes('1000w') || name.includes('850w') || name.includes('gold')) {
+        return '/media/categories/bloki-pitanie.jpg';
+      }
+      if (slug.includes('ssd') || name.includes('nvme') || name.includes('990 pro') || name.includes('kingston')) {
+        return '/media/categories/ssd.jpg';
+      }
+      if (slug.includes('ohlazhd') || name.includes('cooler') || name.includes('liquid') || name.includes('freezer') || name.includes('icue')) {
+        return '/media/categories/ohlazhdenie.jpg';
+      }
+      if (slug.includes('korpusny') || name.includes('fan') || name.includes('ventilyator')) {
+        return '/media/categories/korpusnye-ventilyatory.jpg';
+      }
+      if (slug.includes('korpus') || name.includes('case') || name.includes('cougar airface') || name.includes('geometric future')) {
+        return '/media/categories/korpusa.jpg';
+      }
+      if (slug.includes('noutbuk') || name.includes('laptop') || name.includes('vivobook') || name.includes('rog strix g16')) {
+        return '/media/categories/noutbuki.jpg';
+      }
+      if (slug.includes('stol') || name.includes('desk') || name.includes('table')) {
+        return '/media/categories/stoly.jpg';
+      }
+      if (slug.includes('kresl') || name.includes('chair') || name.includes('armor') || name.includes('kaiser')) {
+        return '/media/categories/kresla.jpg';
+      }
+      return '/media/categories/ready-pc.jpg';
+    }
+
+    const getImageUrl = (url, categorySlug, productName) => {
       if (!url || url === 'null' || url === '' || url.includes('/temp_products/')) {
-        const fallbackIdx = productId ? (Math.abs(productId) % 40) + 1 : 1;
-        return `${BACKEND_MEDIA_ORIGIN}/media/products/product_image_${fallbackIdx}.jpg`;
+        return getCategoryFallbackImage(categorySlug, productName);
       }
       if (url.startsWith('http://') || url.startsWith('https://')) {
         if (url.includes('/media/') && (url.includes('storepcshop.uz') || url.includes('pcshop.uz'))) {
@@ -84,28 +136,35 @@ async function main() {
         });
       }
 
+      const catSlug = typeof p.category === 'object' && p.category !== null ? p.category.slug : (p.category_slug || '');
+      const catId = typeof p.category === 'object' && p.category !== null ? p.category.id : (typeof p.category === 'number' ? p.category : (p.category_id || 0));
+      const nameRu = p.name_ru || p.name || '';
+      const nameUz = p.name_uz || p.name || nameRu;
+
       let rawImages = p.images && Array.isArray(p.images) ? p.images : (p.image ? [p.image] : []);
       rawImages = rawImages.filter((img) => img && img !== 'null' && !img.includes('/temp_products/'));
       if (rawImages.length === 0) {
-        const fallbackIdx = (Math.abs(p.id || 1) % 40) + 1;
-        rawImages = [`/media/products/product_image_${fallbackIdx}.jpg`];
+        rawImages = [getCategoryFallbackImage(catSlug, nameRu)];
       }
-      const images = rawImages.map((img) => getImageUrl(img, p.id));
+      const images = rawImages.map((img) => getImageUrl(img, catSlug, nameRu));
       
       const images_detail = (p.images_detail || []).map((img) => ({
         ...img,
-        url: getImageUrl(img.url)
+        url: getImageUrl(img.url, catSlug, nameRu)
       }));
+
+      const descRu = p.description_ru || p.description || p.details || '';
+      const descUz = p.description_uz || p.description || p.details || descRu;
 
       return {
         id: p.id,
-        category_id: p.category ? p.category.id : 0,
-        category_slug: p.category ? p.category.slug : '',
-        name_ru: p.name_ru,
-        name_uz: p.name_uz,
+        category_id: catId,
+        category_slug: catSlug,
+        name_ru: nameRu,
+        name_uz: nameUz,
         slug: p.slug || '',
-        description_ru: p.description_ru || '',
-        description_uz: p.description_uz || '',
+        description_ru: descRu,
+        description_uz: descUz,
         price: Number(p.price),
         price_usd: p.price_usd ? Number(p.price_usd) : null,
         old_price: p.old_price ? Number(p.old_price) : null,

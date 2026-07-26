@@ -221,18 +221,14 @@ export default function ProductPage({ overrideSlug }: { overrideSlug?: string })
               animate={{ opacity: 1, scale: 1 }}
               className="relative aspect-square rounded-2xl overflow-hidden bg-neutral-900"
             >
-              {product.images?.[selectedImage] ? (
-                <Image
-                  src={getImageUrl(product.images[selectedImage])}
-                  alt={name}
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-600">
-                  <div className="w-24 h-24 rounded-full bg-neutral-800" />
-                </div>
-              )}
+              <img
+                src={getImageUrl(product.images?.[selectedImage] || null, product.id)}
+                alt={name}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = getImageUrl(null, product.id);
+                }}
+              />
 
               {/* Navigation arrows */}
               {product.images && product.images.length > 1 && (

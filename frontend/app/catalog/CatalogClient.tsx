@@ -304,20 +304,12 @@ export default function CatalogPage() {
           <div className={`relative overflow-hidden bg-gradient-to-br from-neutral-800 to-neutral-900 ${
             viewMode === 'list' ? 'w-48 flex-shrink-0' : 'aspect-square'
           }`}>
-            {product.images?.[0] && !imgError ? (
-              <Image
-                src={getImageUrl(product.images[0])}
-                alt={name}
-                fill
-                onError={() => setImgError(true)}
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            ) : (
-              <div className="w-full h-full flex flex-col items-center justify-center text-gray-500 p-4 text-center">
-                <Grid3X3 className="w-10 h-10 mb-2 opacity-40" />
-                <span className="text-xs font-semibold tracking-wider text-gray-400 uppercase">PCSHOP</span>
-              </div>
-            )}
+            <img
+              src={!imgError && product.images?.[0] ? getImageUrl(product.images[0], product.id) : getImageUrl(null, product.id)}
+              alt={name}
+              onError={() => setImgError(true)}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
 
             {/* Badges */}
             <div className="absolute top-3 left-3 flex flex-col gap-2">

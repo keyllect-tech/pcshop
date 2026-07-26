@@ -146,7 +146,7 @@ async function fetchProductsInBackground() {
 export const BACKEND_MEDIA_ORIGIN = 'https://relative-tyne-dus-23fc21cf.koyeb.app';
 
 export const getImageUrl = (url?: string | null, productId?: number): string => {
-  if (!url || url === 'null' || url === '') {
+  if (!url || url === 'null' || url === '' || url.includes('/temp_products/')) {
     const fallbackIdx = productId ? (Math.abs(productId) % 40) + 1 : 1;
     return `${BACKEND_MEDIA_ORIGIN}/media/products/product_image_${fallbackIdx}.jpg`;
   }
@@ -173,7 +173,7 @@ function parseProductsData(data: any[]): Product[] {
     }
 
     let rawImages = p.images && Array.isArray(p.images) ? p.images : (p.image ? [p.image] : []);
-    rawImages = rawImages.filter((img: string) => img && img !== 'null');
+    rawImages = rawImages.filter((img: string) => img && img !== 'null' && !img.includes('/temp_products/'));
     if (rawImages.length === 0) {
       const fallbackIdx = (Math.abs(p.id || 1) % 40) + 1;
       rawImages = [`/media/products/product_image_${fallbackIdx}.jpg`];

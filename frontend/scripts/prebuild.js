@@ -64,6 +64,12 @@ async function main() {
       const slug = (categorySlug || '').toLowerCase();
       const name = (productName || '').toLowerCase();
 
+      if (slug.includes('korpusny') || name.includes('korpusny') || name.includes('fan') || name.includes('ventilyator') || name.includes('uni fan')) {
+        return '/media/categories/korpusnye-ventilyatory.jpg';
+      }
+      if (slug.includes('korpus') || slug.includes('case') || name.includes('case') || name.includes('lian li o11') || name.includes('o11 vision') || name.includes('o11d') || name.includes('lancool') || name.includes('cougar airface') || name.includes('geometric future') || name.includes('jonsbo') || name.includes('hyte') || name.includes('nzxt')) {
+        return '/media/categories/korpusa.jpg';
+      }
       if (slug.includes('monitor') || name.includes('monitor') || name.includes('ultragear') || name.includes('zowie xl') || name.includes('27gx') || name.includes('benq zowie')) {
         return '/media/categories/monitory.jpg';
       }
@@ -73,13 +79,13 @@ async function main() {
       if (slug.includes('video') || name.includes('rtx') || name.includes('geforce') || name.includes('radeon') || name.includes('videocard')) {
         return '/media/categories/videokarty.jpg';
       }
-      if (slug.includes('klaviat') || name.includes('keyboard') || name.includes('aula') || name.includes('akko') || name.includes('mechanical')) {
+      if (slug.includes('klaviat') || slug.includes('keyboard') || name.includes('keyboard') || name.includes('aula') || name.includes('akko') || name.includes('mechanical')) {
         return '/media/categories/klaviatury.jpg';
       }
-      if (slug.includes('myshk') || name.includes('mouse') || name.includes('atk blazing') || name.includes('superlight') || name.includes('zowie za')) {
+      if (slug.includes('myshk') || slug.includes('mouse') || name.includes('mouse') || name.includes('atk blazing') || name.includes('superlight') || name.includes('zowie za')) {
         return '/media/categories/myshki.jpg';
       }
-      if (slug.includes('naushn') || name.includes('headset') || name.includes('blackshark') || name.includes('hyperx') || name.includes('epos')) {
+      if (slug.includes('naushn') || slug.includes('headset') || name.includes('headset') || name.includes('blackshark') || name.includes('hyperx') || name.includes('epos')) {
         return '/media/categories/naushniki.jpg';
       }
       if (slug.includes('plat') || name.includes('b850') || name.includes('b650') || name.includes('z790') || name.includes('x870') || name.includes('motherboard')) {
@@ -94,12 +100,6 @@ async function main() {
       if (slug.includes('ohlazhd') || name.includes('cooler') || name.includes('liquid') || name.includes('freezer') || name.includes('icue')) {
         return '/media/categories/ohlazhdenie.jpg';
       }
-      if (slug.includes('korpusny') || name.includes('fan') || name.includes('ventilyator')) {
-        return '/media/categories/korpusnye-ventilyatory.jpg';
-      }
-      if (slug.includes('korpus') || name.includes('case') || name.includes('cougar airface') || name.includes('geometric future')) {
-        return '/media/categories/korpusa.jpg';
-      }
       if (slug.includes('noutbuk') || name.includes('laptop') || name.includes('vivobook') || name.includes('rog strix g16')) {
         return '/media/categories/noutbuki.jpg';
       }
@@ -113,7 +113,7 @@ async function main() {
     }
 
     const getImageUrl = (url, categorySlug, productName) => {
-      if (!url || url === 'null' || url === '' || url.includes('/temp_products/')) {
+      if (!url || url === 'null' || url === '' || url === 'undefined') {
         return getCategoryFallbackImage(categorySlug, productName);
       }
       if (url.startsWith('http://') || url.startsWith('https://')) {
@@ -142,7 +142,7 @@ async function main() {
       const nameUz = p.name_uz || p.name || nameRu;
 
       let rawImages = p.images && Array.isArray(p.images) ? p.images : (p.image ? [p.image] : []);
-      rawImages = rawImages.filter((img) => img && img !== 'null' && !img.includes('/temp_products/'));
+      rawImages = rawImages.filter((img) => img && img !== 'null' && img !== 'undefined' && String(img).trim().length > 0);
       if (rawImages.length === 0) {
         rawImages = [getCategoryFallbackImage(catSlug, nameRu)];
       }

@@ -32,7 +32,7 @@ const FAQ_ITEMS = [
     answer_uz: 'Ha, albatta! Butlovchi qismlarni o\'zingiz tanlash uchun «PK Konfiguratori» bo\'limimizdan foydalanishingiz yoki Telegram yoki telefon orqali mutaxassislarimiz bilan bog\'lanishingiz mumkin. Biz sizning vazifalaringiz va byudjetingizga mos keladigan optimal komponentlarni tanlashga yordam beramiz, professional yig\'ish, dasturiy ta\'minotni o\'rnatish va bepul sinovdan o\'tkazishni amalga oshiramiz.'
   },
   {
-    question_ru: 'Какие способы оплаты вы принимаем?',
+    question_ru: 'Какие способы оплаты вы принимаете?',
     question_uz: 'Qanday to\'lov usullarini qabul qilasiz?',
     answer_ru: 'Мы принимаем оплату наличными при получении товара, переводы на карты Click и Payme, а также оплату по безналичному расчету (с предоставлением всех закрывающих документов и договора) для юридических лиц.',
     answer_uz: 'Biz tovarlarni olishda naqd pul to\'lashni, Click va Payme kartalariga o\'tkazmalarni, shuningdek yuridik shaxslar uchun naqd pulsiz to\'lovlarni (barcha yopuvchi hujjatlar va shartnomalarni taqdim etgan holda) qabul qilamiz.'

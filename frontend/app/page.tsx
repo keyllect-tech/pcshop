@@ -592,7 +592,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatCounter value={500} label={t.stats.products} />
             <StatCounter value={2000} label={t.stats.customers} />
-            <StatCounter value={3500} label={t.stats.orders} />
+            <StatCounter value={5000} label={t.stats.orders} />
             <StatCounter value={10} label={t.stats.years} />
           </div>
         </div>

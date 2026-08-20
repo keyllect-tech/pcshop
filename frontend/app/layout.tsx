@@ -196,10 +196,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} min-h-screen bg-neutral-950 text-white`}>
+      <body className={`${inter.className} min-h-screen bg-neutral-950 text-white overflow-x-hidden`}>
         <Providers>
           <Header />
-          <main className="min-h-screen pb-20 lg:pb-0">{children}</main>
+          <main className="min-h-screen overflow-x-hidden">{children}</main>
           <Footer />
         </Providers>
       </body>

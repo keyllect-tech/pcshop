@@ -27,17 +27,39 @@
     --border: 70, 72, 78;
   }
 
-  * {
+  *, *::before, *::after {
+    box-sizing: border-box;
     @apply border-neutral-800;
   }
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    /* Fluid base font: 14px on small mobile → 16px on desktop */
+    font-size: clamp(14px, 1.5vw, 16px);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
     @apply bg-neutral-950 text-white antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  /* Prevent images/media from overflowing */
+  img, video, svg, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Tables scroll horizontally */
+  table {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -63,135 +85,102 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-red-500 hover:shadow-lg hover:shadow-red-500/25 active:scale-95;
+    @apply inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2.5 sm:px-6 sm:py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-red-500 hover:shadow-lg hover:shadow-red-500/25 active:scale-95 touch-manipulation;
+    min-height: 44px;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-lg border border-gray-600 bg-gray-800 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-gray-700 hover:border-red-500 active:scale-95;
+    @apply inline-flex items-center justify-center rounded-lg border border-gray-600 bg-gray-800 px-4 py-2.5 sm:px-6 sm:py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-gray-700 hover:border-red-500 active:scale-95 touch-manipulation;
+    min-height: 44px;
   }
 
   .input-dark {
     @apply w-full rounded-lg border border-gray-700 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500;
+    min-height: 44px;
+  }
+
+  /* Hide scrollbar but keep scrollability */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }
 
+/* ── Keyframes ──────────────────────────────────── */
 @keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 @keyframes count-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(229, 57, 53, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(229, 57, 53, 0.6);
-  }
+  0%, 100% { box-shadow: 0 0 20px rgba(229, 57, 53, 0.3); }
+  50%       { box-shadow: 0 0 40px rgba(229, 57, 53, 0.6); }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
-}
+.animate-fade-in    { animation: fade-in  0.6s ease-out forwards; }
+.animate-slide-up   { animation: slide-up 0.8s ease-out forwards; }
+.animate-scale-in   { animation: scale-in 0.4s ease-out forwards; }
+.animate-count-up   { animation: count-up 0.4s ease-out forwards; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 
-.animate-slide-up {
-  animation: slide-up 0.8s ease-out forwards;
-}
+/* ── Scrollbar ──────────────────────────────────── */
+.scrollbar-thin::-webkit-scrollbar       { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: rgb(18, 18, 18); }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: rgb(60, 62, 68); border-radius: 3px; }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: rgb(229, 57, 53); }
 
-.animate-scale-in {
-  animation: scale-in 0.4s ease-out forwards;
-}
+/* ── Safe Area helpers ──────────────────────────── */
+.pb-safe { padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0.5rem)); }
+.pt-safe { padding-top:    env(safe-area-inset-top,    0px); }
+.pl-safe { padding-left:   env(safe-area-inset-left,   0px); }
+.pr-safe { padding-right:  env(safe-area-inset-right,  0px); }
 
-.animate-count-up {
-  animation: count-up 0.4s ease-out forwards;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.scrollbar-thin::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
-  background: rgb(18, 18, 18);
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgb(60, 62, 68);
-  border-radius: 3px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: rgb(229, 57, 53);
-}
-
-/* Touch and Safe Area optimizations */
-.pb-safe {
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-.pt-safe {
-  padding-top: env(safe-area-inset-top, 0px);
-}
-.pl-safe {
-  padding-left: env(safe-area-inset-left, 0px);
-}
-.pr-safe {
-  padding-right: env(safe-area-inset-right, 0px);
-}
-
-/* Safe touch target minimum size for mobile compliance */
-button, a, input, select {
+/* ── Touch target minimum sizes ─────────────────── */
+button, a, input, select, textarea, [role="button"] {
   touch-action: manipulation;
 }
 
-/* Accessibility: Support prefers-reduced-motion */
+/* ── Mobile bottom nav: body spacer ─────────────── */
+/* Push content above the fixed 56px bottom nav on mobile */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-delay: 0s !important;
-    animation-duration: 0s !important;
+  *, *::before, *::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0s !important;
+    transition-duration: 0ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ── 4K / Smart TV / Ultra-wide scaling ─────────── */
+@media (min-width: 2560px) {
+  html { font-size: 18px; }
+}
+@media (min-width: 3840px) {
+  html { font-size: 22px; }
 }

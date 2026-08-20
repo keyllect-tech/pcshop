@@ -516,7 +516,7 @@ export default function CatalogPage() {
 
           {/* Filters Sidebar */}
           <aside
-            className={`fixed lg:static inset-y-0 left-0 z-[9999] lg:z-30 w-80 lg:w-72 bg-neutral-950 lg:bg-transparent border-r border-neutral-900 lg:border-none overflow-y-auto lg:overflow-visible transition-all duration-300 ${
+            className={`fixed lg:static inset-y-0 left-0 z-[9999] lg:z-30 w-80 max-w-[85vw] lg:w-72 lg:max-w-none bg-neutral-950 lg:bg-transparent border-r border-neutral-900 lg:border-none overflow-y-auto lg:overflow-visible transition-all duration-300 ${
               isFilterOpen 
                 ? 'translate-x-0 opacity-100 pointer-events-auto' 
                 : '-translate-x-full lg:translate-x-0 opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto'

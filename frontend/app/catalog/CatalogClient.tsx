@@ -103,11 +103,20 @@ export default function CatalogPage() {
     // Category filter
     if (selectedCategory) {
       const cat = categories.find(c => c.slug === selectedCategory || String(c.id) === selectedCategory);
-      result = result.filter(p =>
-        (cat && p.category_id === cat.id) ||
-        p.category_slug === selectedCategory ||
-        (cat && p.category_slug === cat.slug)
-      );
+      if (cat) {
+        // Category found — filter strictly
+        result = result.filter(p =>
+          p.category_id === cat.id ||
+          p.category_slug === cat.slug
+        );
+      } else if (categories.length > 0) {
+        // Category slug not in DB — try matching by category_slug field directly
+        const directMatch = result.filter(p => p.category_slug === selectedCategory);
+        if (directMatch.length > 0) {
+          result = directMatch;
+        }
+        // else: unknown category, show all products (don't return 0)
+      }
     }
 
     // Brand filter

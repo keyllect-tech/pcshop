@@ -465,7 +465,7 @@ export default function HomePage() {
                     <ArrowRight className="w-5 h-5" />
                   </motion.button>
                 </Link>
-                <Link href="/catalog?category=ready-pc">
+                <Link href="/configurator">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

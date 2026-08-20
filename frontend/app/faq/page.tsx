@@ -16,8 +16,8 @@ const FAQ_ITEMS = [
   {
     question_ru: 'Каковы условия доставки по Узбекистану?',
     question_uz: 'O\'zbekiston bo\'ylab yetkazib berish shartlari qanday?',
-    answer_ru: 'Доставка по Ташкенту осуществляется в день заказа или на следующий день. Стоимость доставки по Ташкенту — от 30 000 сум (при крупных заказах возможна бесплатная доставка). Доставка в другие города Узбекистана (Самарканд, Бухара, Фергана и др.) занимает от 2 до 3 рабочих дней курьерскими службами.',
-    answer_uz: 'Toshkent bo\'ylab yetkazib berish buyurtma qilingan kuni yoki ertasi kuni amalga oshiriladi. Toshkent bo\'ylab yetkazib berish narxi 30 000 so\'mdan boshlanadi (yirik buyurtmalar uchun bepul yetkazib berish mumkin). O\'zbekistonning boshqa shaharlariga (Samarqand, Buxoro, Farg\'ona va h.k.) yetkazib berish kuryerlik xizmatlari orqali 2-3 ish kunini oladi.'
+    answer_ru: 'Доставка по Ташкенту осуществляется в день заказа или на следующий день. Стоимость доставки по Ташкенту — от 50 000 сум (при крупных заказах возможна бесплатная доставка). Доставка в другие города Узбекистана (Самарканд, Бухара, Фергана и др.) занимает от 3 до 5 рабочих дней курьерскими службами.',
+    answer_uz: 'Toshkent bo\'ylab yetkazib berish buyurtma qilingan kuni yoki ertasi kuni amalga oshiriladi. Toshkent bo\'ylab yetkazib berish narxi 50 000 so\'mdan boshlanadi (yirik buyurtmalar uchun bepul yetkazib berish mumkin). O\'zbekistonning boshqa shaharlariga (Samarqand, Buxoro, Farg\'ona va h.k.) yetkazib berish kuryerlik xizmatlari orqali 3-5 ish kunini oladi.'
   },
   {
     question_ru: 'Какая гарантия предоставляется на комплектующие?',

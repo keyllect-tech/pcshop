@@ -611,7 +611,9 @@ export default function HomePage() {
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
                 {t.nav.catalog}
               </h2>
-              <p className="text-gray-400">Выберите категорию товаров</p>
+              <p className="text-gray-400">
+                {language === 'ru' ? 'Выберите категорию товаров' : 'Mahsulotlar kategoriyasini tanlang'}
+              </p>
             </div>
             <Link href="/catalog">
               <motion.button

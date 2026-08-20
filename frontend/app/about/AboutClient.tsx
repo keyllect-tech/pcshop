@@ -241,7 +241,7 @@ export default function AboutPage() {
                   <CheckCircle className="w-4 h-4 text-red-500" />
                   {language === 'ru'
                     ? 'Гарантия от 12 месяцев на все товары'
-                    : 'Barcha mahsulotlarga 12 oydan kam kafolat'}
+                    : 'Barcha mahsulotlarga 12 oydan kam bo\'lmagan kafolat'}
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-red-500" />

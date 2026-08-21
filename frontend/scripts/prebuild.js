@@ -9,11 +9,6 @@ if (!baseUrl.endsWith('/api')) {
   baseUrl = `${baseUrl}/api`;
 }
 
-// Intercept legacy domain
-if (!baseUrl || baseUrl.includes('pcshop.uz') || baseUrl.includes('storepcshop.uz') || !baseUrl.includes('koyeb.app')) {
-  baseUrl = 'https://relative-tyne-dus-23fc21cf.koyeb.app/api';
-}
-
 const CACHE_DIR = path.join(process.cwd(), 'api-cache');
 
 async function fetchWithRetry(url, retries = 3) {

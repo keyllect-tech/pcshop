@@ -1,10 +1,5 @@
 let rawBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://relative-tyne-dus-23fc21cf.koyeb.app/api';
 
-// Force all API traffic to the active Koyeb backend server
-if (!rawBaseUrl || rawBaseUrl.includes('pcshop.uz') || rawBaseUrl.includes('storepcshop.uz') || !rawBaseUrl.includes('koyeb.app')) {
-  rawBaseUrl = 'https://relative-tyne-dus-23fc21cf.koyeb.app/api';
-}
-
 if (rawBaseUrl.endsWith('/')) {
   rawBaseUrl = rawBaseUrl.slice(0, -1);
 }
@@ -144,7 +139,8 @@ async function fetchProductsInBackground() {
   }
 }
 
-export const BACKEND_MEDIA_ORIGIN = 'https://relative-tyne-dus-23fc21cf.koyeb.app';
+// Dynamically derived from BASE_URL so it always points to the correct backend
+export const BACKEND_MEDIA_ORIGIN = BASE_URL.replace(/\/api$/, '');
 
 export function getCategoryFallbackImage(categorySlug?: string, productName?: string): string {
   const slug = (categorySlug || '').toLowerCase();

@@ -197,8 +197,8 @@ export default function ConfiguratorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <div className="min-h-screen py-12 bg-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen py-12 bg-black text-white" style={{ overflowX: 'hidden' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ overflowX: 'visible' }}>
           
           {/* Header */}
           <div className="mb-10 text-center">
@@ -212,13 +212,20 @@ export default function ConfiguratorPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8" style={{ overflowX: 'visible' }}>
             
             {/* Steps & Selection area */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-6" style={{ overflowX: 'visible' }}>
               
               {/* Stepper Navigation */}
-              <div className="flex overflow-x-auto pb-2 gap-2 scrollbar-thin">
+              <div
+                className="flex gap-2 pb-2 scrollbar-none"
+                style={{
+                  overflowX: 'auto',
+                  WebkitOverflowScrolling: 'touch',
+                  scrollSnapType: 'x mandatory',
+                }}
+              >
                 {steps.map((step) => {
                   const Icon = step.icon;
                   const isSelected = selectedComponents[step.id];
@@ -228,7 +235,8 @@ export default function ConfiguratorPage() {
                     <button
                       key={step.id}
                       onClick={() => setActiveStep(step.id)}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl border text-sm font-medium transition-all flex-shrink-0 ${
+                      style={{ scrollSnapAlign: 'start' }}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-xl border text-sm font-medium transition-all flex-shrink-0 min-h-[48px] touch-manipulation ${
                         isActive 
                           ? 'border-red-500 bg-red-500/10 text-white' 
                           : isSelected 
@@ -236,8 +244,8 @@ export default function ConfiguratorPage() {
                             : 'border-gray-800 bg-neutral-900/50 text-gray-400 hover:border-gray-700'
                       }`}
                     >
-                      <Icon className={`w-5 h-5 ${isActive ? 'text-red-500' : isSelected ? 'text-green-500' : 'text-gray-500'}`} />
-                      <span>{language === 'ru' ? step.name_ru : step.name_uz}</span>
+                      <Icon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-red-500' : isSelected ? 'text-green-500' : 'text-gray-500'}`} />
+                      <span className="whitespace-nowrap">{language === 'ru' ? step.name_ru : step.name_uz}</span>
                     </button>
                   );
                 })}

@@ -120,7 +120,13 @@ export default function ConfiguratorPage() {
 
   const getFilteredProducts = (categoryId: number | null) => {
     if (categoryId === null) return [];
-    return products.filter(p => p.category_id === categoryId);
+    // Exclude products already selected in OTHER steps (same category could have multiple)
+    const selectedIds = new Set(
+      Object.entries(selectedComponents)
+        .filter(([stepId]) => stepId !== activeStep)
+        .map(([, product]) => product.id)
+    );
+    return products.filter(p => p.category_id === categoryId && !selectedIds.has(p.id));
   };
 
   const calculateTotalPrice = () => {
@@ -274,20 +280,68 @@ export default function ConfiguratorPage() {
                       <div key={i} className="h-20 bg-neutral-900 animate-pulse rounded-xl" />
                     ))}
                   </div>
+                ) : selectedComponents[activeStep] ? (
+                  // ── Already chosen: show confirmation card ──
+                  <div className="flex flex-col items-center gap-6 py-8">
+                    <div className="flex items-center gap-4 w-full max-w-md p-4 rounded-xl border border-green-500/40 bg-green-500/5">
+                      <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-neutral-800 flex-shrink-0">
+                        {selectedComponents[activeStep].images?.[0] ? (
+                          <Image
+                            src={selectedComponents[activeStep].images[0]}
+                            alt=""
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-neutral-700" />
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs text-green-400 font-medium mb-0.5">
+                          {language === 'ru' ? '✅ Выбрано' : '✅ Tanlandi'}
+                        </p>
+                        <h4 className="text-white font-semibold text-sm line-clamp-2">
+                          {language === 'ru'
+                            ? selectedComponents[activeStep].name_ru
+                            : selectedComponents[activeStep].name_uz}
+                        </h4>
+                        <p className="text-red-400 font-bold text-sm mt-1">
+                          {formatPrice(selectedComponents[activeStep].price)}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+                      <button
+                        onClick={() => handleRemoveComponent(activeStep)}
+                        className="flex-1 py-2.5 rounded-xl border border-gray-700 text-gray-400 hover:border-red-500 hover:text-red-400 text-sm font-medium transition-all"
+                      >
+                        {language === 'ru' ? '↩ Изменить выбор' : '↩ Tanlashni o\'zgartirish'}
+                      </button>
+                      {(() => {
+                        const currentIndex = steps.findIndex(s => s.id === activeStep);
+                        const nextStep = steps[currentIndex + 1];
+                        return nextStep ? (
+                          <button
+                            onClick={() => setActiveStep(nextStep.id)}
+                            className="flex-1 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-sm font-semibold transition-all"
+                          >
+                            {language === 'ru'
+                              ? `Далее: ${nextStep.name_ru} →`
+                              : `Keyingi: ${nextStep.name_uz} →`}
+                          </button>
+                        ) : null;
+                      })()}
+                    </div>
+                  </div>
                 ) : stepProducts.length > 0 ? (
                   <div className="space-y-4">
                     {stepProducts.map((product) => {
-                      const isChosen = selectedComponents[activeStep]?.id === product.id;
                       const name = language === 'ru' ? product.name_ru : product.name_uz;
                       
                       return (
                         <div
                           key={product.id}
-                          className={`flex flex-col sm:flex-row items-center justify-between p-4 rounded-xl border transition-all ${
-                            isChosen 
-                              ? 'border-red-500 bg-red-500/5' 
-                              : 'border-gray-800 bg-neutral-900/50 hover:border-gray-700'
-                          }`}
+                          className="flex flex-col sm:flex-row items-center justify-between p-4 rounded-xl border border-gray-800 bg-neutral-900/50 hover:border-gray-700 transition-all"
                         >
                           <div className="flex items-center gap-4 w-full sm:w-auto mb-4 sm:mb-0">
                             <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-neutral-800 flex-shrink-0">
@@ -298,7 +352,7 @@ export default function ConfiguratorPage() {
                               )}
                             </div>
                             <div>
-                              <h4 className="font-semibold text-white group-hover:text-red-500 transition-colors line-clamp-1">{name}</h4>
+                              <h4 className="font-semibold text-white line-clamp-1">{name}</h4>
                               <p className="text-xs text-red-500 font-medium">{product.brand}</p>
                               {product.stock > 0 ? (
                                 <p className="text-xs text-green-500 mt-1">{language === 'ru' ? 'В наличии' : 'Mavjud'}</p>
@@ -313,13 +367,9 @@ export default function ConfiguratorPage() {
                             <button
                               onClick={() => handleSelectComponent(activeStep, product)}
                               disabled={product.stock === 0}
-                              className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
-                                isChosen 
-                                  ? 'bg-red-500 text-white' 
-                                  : 'bg-neutral-800 text-gray-300 hover:bg-neutral-700 disabled:opacity-50'
-                              }`}
+                              className="px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-neutral-800 text-gray-300 hover:bg-red-600 hover:text-white disabled:opacity-50 min-h-[40px]"
                             >
-                              {isChosen ? (language === 'ru' ? 'Выбрано' : 'Tanlandi') : (language === 'ru' ? 'Выбрать' : 'Tanlash')}
+                              {language === 'ru' ? 'Выбрать' : 'Tanlash'}
                             </button>
                           </div>
                         </div>
